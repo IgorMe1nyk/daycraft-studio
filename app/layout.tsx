@@ -14,8 +14,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  // TODO: Update once a real domain is live.
-  metadataBase: new URL("https://daybreakstudio.com"),
+  metadataBase: new URL("https://daybreakstudio.studio"),
   title: "Daybreak Studio — Websites for small businesses in North Jersey",
   description:
     "Daybreak Studio builds clean, fast, affordable websites for small businesses in North Jersey. Delivered in days, not months.",
@@ -35,7 +34,7 @@ export const metadata: Metadata = {
     title: "Daybreak Studio — Websites for small businesses in North Jersey",
     description:
       "Clean, fast, affordable websites for North Jersey small businesses. Delivered in days, not months.",
-    url: "https://daybreakstudio.com",
+    url: "https://daybreakstudio.studio",
     siteName: "Daybreak Studio",
     type: "website",
     locale: "en_US",
