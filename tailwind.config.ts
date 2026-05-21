@@ -42,11 +42,37 @@ const config: Config = {
       },
       animation: {
         "sun-pulse": "sun-pulse 2.6s ease-in-out infinite",
+        "overlay-in": "overlay-in 200ms ease-out",
+        "overlay-out": "overlay-out 150ms ease-out forwards",
+        "modal-in": "modal-in 280ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "modal-out": "modal-out 200ms cubic-bezier(0.22, 1, 0.36, 1) forwards",
       },
       keyframes: {
         "sun-pulse": {
           "0%, 100%": { opacity: "1", transform: "scale(1)" },
           "50%": { opacity: "0.85", transform: "scale(1.06)" },
+        },
+        "overlay-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+        "overlay-out": {
+          from: { opacity: "1" },
+          to: { opacity: "0" },
+        },
+        "modal-in": {
+          from: {
+            opacity: "0",
+            transform: "translate(-50%, -48%) scale(0.97)",
+          },
+          to: { opacity: "1", transform: "translate(-50%, -50%) scale(1)" },
+        },
+        "modal-out": {
+          from: { opacity: "1", transform: "translate(-50%, -50%) scale(1)" },
+          to: {
+            opacity: "0",
+            transform: "translate(-50%, -49%) scale(0.98)",
+          },
         },
       },
     },

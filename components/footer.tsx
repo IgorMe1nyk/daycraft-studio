@@ -25,6 +25,12 @@ export default function Footer() {
             Services
           </a>
           <a
+            href="#work"
+            className="text-warmGray hover:text-charcoal transition-colors"
+          >
+            Work
+          </a>
+          <a
             href="#process"
             className="text-warmGray hover:text-charcoal transition-colors"
           >

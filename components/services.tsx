@@ -272,6 +272,17 @@ export default function Services() {
                   {t.cta}
                   <ArrowRight className="size-3.5 transition-transform duration-200 group-hover/cta:translate-x-1" />
                 </a>
+
+                {/* Quiet secondary link — only on Starter, pointing to the
+                    live Emily & James example in the Work section. */}
+                {t.tier === "STARTER" && (
+                  <a
+                    href="#work"
+                    className="mt-2 inline-block text-xs text-warmGray/80 hover:text-accent transition-colors"
+                  >
+                    See an example →
+                  </a>
+                )}
               </motion.div>
             );
           })}
