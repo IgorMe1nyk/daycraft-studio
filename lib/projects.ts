@@ -94,7 +94,7 @@ export const projects: Project[] = [
     mobilePreview: "/projects/emily-james-mobile-preview.png",
     tier: "Starter",
     price: "$350",
-    buildTime: "Built in 1 day",
+    buildTime: "Built in 3 days",
     featured: true,
     cardFeatures: [
       { label: "Custom RSVP Flow", Icon: ListChecks },
