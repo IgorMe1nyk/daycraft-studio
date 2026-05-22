@@ -1,13 +1,20 @@
-import { Instagram, Mail, type LucideProps } from "lucide-react";
+import { Instagram, Mail, Phone, type LucideProps } from "lucide-react";
 import { TelegramIcon, WhatsAppIcon } from "@/components/icons/brand-icons";
 
 /* ───────────────────────────────────────────────────────────────────────────
-   Single source of truth for the four ways visitors can reach me.
+   Single source of truth for the five ways visitors can reach me.
 
    Each method is either `live` (a real link) or `soon` (placeholder that
    shows an alert until the account exists).
 
    ── HOW TO PROMOTE A "SOON" METHOD TO LIVE ────────────────────────────────
+
+   Phone (Google Voice):
+     1. Set up the Google Voice number.
+     2. Change the Phone entry's `state` to "live", set
+        `href: "tel:+19733070018"`, and set `display` to the formatted
+        number, e.g. "+1 (973) 307-0018".
+     3. Remove the `alert` field.
 
    WhatsApp:
      1. Get your Business account number (E.164 format, no +/spaces).
@@ -35,7 +42,7 @@ export type ContactMethodState = "live" | "soon";
 
 export interface ContactMethod {
   /** Stable key used for React lists and aria-labels. */
-  id: "email" | "instagram" | "whatsapp" | "telegram";
+  id: "email" | "phone" | "whatsapp" | "telegram" | "instagram";
   label: string;
   state: ContactMethodState;
   /** Text shown to the visitor next to the icon. */
@@ -48,7 +55,7 @@ export interface ContactMethod {
    */
   alert?: string;
   Icon: ContactMethodIcon;
-  /** For `mailto:` links etc., we want to stay in-page. Default true. */
+  /** For `mailto:`/`tel:` links etc., we want to stay in-page. Default true. */
   openInNewTab?: boolean;
 }
 
@@ -63,14 +70,17 @@ export const contactMethods: ContactMethod[] = [
     openInNewTab: false,
   },
   {
-    id: "instagram",
-    label: "Instagram",
-    state: "live",
-    // Instagram handle: daybreak.studio.nj — update here if the username changes
-    display: "@daybreak.studio.nj",
-    href: "https://instagram.com/daybreak.studio.nj",
-    Icon: Instagram,
-    openInNewTab: true,
+    id: "phone",
+    label: "Phone",
+    state: "soon",
+    display: "Coming soon",
+    alert:
+      "Phone line launching tomorrow — for now, please email hello@daybreakstudio.studio",
+    // TODO: Once Google Voice is set up, replace href="#" with tel:+19733070018
+    // and remove onClick. Update display to: "+1 (973) 307-0018"
+    // (Switch state to "live", set href, set openInNewTab: false, and remove
+    // the `alert` field — see the header comment at the top of this file.)
+    Icon: Phone,
   },
   {
     id: "whatsapp",
@@ -99,6 +109,16 @@ export const contactMethods: ContactMethod[] = [
     //   display: "@<username>"
     //   (and remove the `alert` field).
     Icon: TelegramIcon,
+  },
+  {
+    id: "instagram",
+    label: "Instagram",
+    state: "live",
+    // Instagram handle: daybreak.studio.nj — update here if the username changes
+    display: "@daybreak.studio.nj",
+    href: "https://instagram.com/daybreak.studio.nj",
+    Icon: Instagram,
+    openInNewTab: true,
   },
 ];
 

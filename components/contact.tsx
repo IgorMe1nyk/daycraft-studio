@@ -38,8 +38,9 @@ import { SectionHeading } from "./ui/section-heading";
 import { contactMethods, type ContactMethod } from "@/lib/contact-methods";
 import { cn } from "@/lib/utils";
 
-// 🔧 Replace with your real Formspree endpoint once the form is created.
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/REPLACE_WITH_REAL_ID";
+// Real Formspree endpoint — submissions arrive at hello@daybreakstudio.studio.
+// If you ever rotate the endpoint, see the setup steps at the top of this file.
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xykvwqlv";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
