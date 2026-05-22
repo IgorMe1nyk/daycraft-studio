@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
-  <rect width="40" height="40" rx="8" fill="#FAF8F3"/>
-  <line x1="5" y1="25" x2="35" y2="25" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round"/>
-  <circle cx="15" cy="19" r="5" fill="#6B8CAE"/>
+  <!-- Cream rounded square so the mark holds together on bright tab backgrounds -->
+  <rect width="40" height="40" rx="9" fill="#FAF8F3"/>
+  <!-- Horizon line — slightly thicker for legibility at 16x16 -->
+  <line x1="6" y1="25" x2="34" y2="25" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- Sun — soft accent blue, sized to read at any zoom -->
+  <circle cx="15" cy="19" r="4.5" fill="#6B8CAE"/>
 </svg>

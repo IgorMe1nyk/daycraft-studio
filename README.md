@@ -3,6 +3,8 @@
 The portfolio site for **Daybreak Studio** — clean, fast, affordable websites
 for small businesses in North Jersey. Built and run by **Igor Melnyk**.
 
+Live: <https://daybreakstudio.studio>
+
 Built with **Next.js 14 (App Router)**, **TypeScript**, **Tailwind CSS**,
 **Framer Motion**, and **Radix UI**. Deploy-ready for Vercel.
 
@@ -29,75 +31,97 @@ npm run lint    # lint only
 
 ## 2. Where to update content
 
-Every spot you'll need to touch is marked with `TODO:` in the code. The big
-ones:
+Everything you'll need to touch is marked with `TODO:` in the code. Quick map:
 
 | What                              | Where                                                              |
 | --------------------------------- | ------------------------------------------------------------------ |
 | Your photo                        | `components/about.tsx` — placeholder block has inline `<Image />` example |
-| Portfolio projects                | `lib/projects.ts` — single source of truth (see file header for instructions) |
-| Mobile preview screenshots        | `public/projects/<id>-mobile-preview.png` (referenced from `lib/projects.ts`) |
+| Portfolio projects                | `lib/projects.ts` — header comment lists every step |
+| Mobile preview screenshots        | `/public/projects/<id>-mobile-preview.png` (referenced from `lib/projects.ts`) |
 | Real testimonials                 | Rename `components/TestimonialsSection.tsx.bak` and follow its header comment |
-| Email address                     | `components/contact.tsx`, `components/footer.tsx`                  |
-| Instagram handle                  | `components/contact.tsx`, `components/footer.tsx`                  |
-| Production domain (after deploy)  | `app/layout.tsx` — `metadataBase`                                  |
+| **Email / Instagram / WhatsApp / Telegram** | **`lib/contact-methods.ts`** — see section 3 below |
+| Formspree endpoint (contact form) | `components/contact.tsx` — `FORMSPREE_ENDPOINT` constant. See section 3.1 below |
+| Production domain (after deploy)  | `app/layout.tsx` — `SITE_URL` constant                             |
 | Headline (alternates in comments) | `components/hero.tsx`                                              |
+| OG/social-share image             | Drop a 1200×630 PNG at `/public/og-image.png` (already referenced) |
 
 ### Adding a portfolio project
 
-All project data lives in **`lib/projects.ts`**. To add a new one:
-
-1. Copy any existing `Project` object in the `projects` array.
-2. Update `id`, `name`, `tag`, descriptions, `liveUrl`, `displayUrl`, features, etc.
-3. Set `featured: true` for a large hero card at the top of Work, or
-   `featured: false` to appear as a compact card in the grid below.
-4. (Optional) Drop a mobile screenshot at
-   `public/projects/<id>-mobile-preview.png` and reference it via `mobilePreview`.
-
-The Work section's layout adapts automatically based on `featured` flags and
-the total project count — no code changes needed.
+All project data lives in **`lib/projects.ts`**. Copy any existing `Project`
+object, change every field, set `featured: true/false`, optionally drop a
+mobile screenshot at `/public/projects/<id>-mobile-preview.png`. The Work
+section's layout adapts automatically based on the array.
 
 ### Adding your photo
 
-1. Save the photo as `public/me.jpg` (recommend ~1000×1250, JPG).
+1. Save the photo as `public/igor-photo.jpg` (recommend ~1000×1250, JPG).
 2. Open `components/about.tsx` and follow the inline `<Image />` example in
-   the `TODO` block to replace the placeholder gradient.
+   the `TODO` block to replace the placeholder.
 
 ### Restoring Testimonials
 
-1. Rename `components/TestimonialsSection.tsx.bak` to `components/testimonials.tsx`.
-2. Follow the "HOW TO RE-ENABLE" comment at the top of that file (it lists
-   exactly where to import + render it in `app/page.tsx`).
+1. Rename `components/TestimonialsSection.tsx.bak` →
+   `components/testimonials.tsx`.
+2. Follow the "HOW TO RE-ENABLE" comment at the top of that file.
 
 ---
 
-## 3. Wiring up the contact form
+## 3. Contact methods + form
 
-`components/contact.tsx` currently shows a "Got it" success state without
-actually sending anything. Three options, all documented inline in the
-`handleSubmit` `TODO` block:
+### 3.1 Set up the contact form (Formspree)
 
-- **Formspree** — zero backend, fastest.
-- **Resend + Next.js API route** — more control, custom email templates.
-- **`mailto:`** — opens the visitor's mail client. Lowest tech.
+Right now the contact form posts to a placeholder Formspree endpoint. Until
+this is replaced with a real ID, submissions will fail and visitors will see
+the inline error fallback (which still includes a `mailto:` link, so nobody
+gets lost).
+
+To activate the form:
+
+1. Go to <https://formspree.io> and sign up using `hello@daybreakstudio.studio`.
+2. Click **"+ New form"** → name it "Daybreak Studio Contact".
+3. Copy the form endpoint URL (looks like `https://formspree.io/f/xxxxxxxx`).
+4. Open `components/contact.tsx` and replace the value of the
+   `FORMSPREE_ENDPOINT` constant near the top of the file with your real
+   endpoint.
+5. Verify the confirmation email Formspree sends.
+6. Done — submissions arrive at `hello@daybreakstudio.studio` within seconds.
+
+Anti-spam: there's an invisible honeypot field named `website` in the form.
+Bots fill it; humans don't. We silently drop any submission where it's filled.
+
+### 3.2 Update or add contact methods
+
+All four contact methods (Email, Instagram, WhatsApp, Telegram) live in
+**`lib/contact-methods.ts`**. That file has a header comment with the exact
+steps to:
+
+- **Promote WhatsApp from "Coming soon" → live** once Business is set up.
+- **Promote Telegram from "Coming soon" → live** once the account exists.
+- **Update the Instagram handle** if `@daybreak.studio.nj` ever changes.
+
+Footer also references the Instagram URL directly in `components/footer.tsx`
+— if you change the handle, update both files (the comment in `footer.tsx`
+points at this).
 
 ---
 
 ## 4. Deploy to Vercel
 
-1. Push the repo to GitHub (already done if you're reading this on github.com).
-2. Go to <https://vercel.com/new>, import the repo, click **Deploy**. No env
-   vars needed — Vercel auto-detects Next.js.
-3. After the first deploy succeeds, update `app/layout.tsx` →
-   `metadataBase` to the real production URL so Open Graph tags resolve.
-4. (Optional) Add a custom domain in the Vercel project dashboard
-   (Settings → Domains).
+The site is already deployed and aliased to `daybreakstudio.studio`. Every
+`git push` to `main` is one `vercel --prod` away from going live (or, if you
+connect the repo in Vercel Settings → Git, it'll auto-deploy on push).
+
+Manual deploy from this repo:
+
+```bash
+npx vercel --prod
+```
 
 ### Iframe note for the Work section
 
-The featured project card embeds the live wedding site via an iframe. If
-that target site sets a strict `frame-ancestors` Content Security Policy,
-the iframe will render blank. The fix on the **target** site (not this one):
+The featured project card embeds a live site via iframe. If a target site
+sets a strict `frame-ancestors` CSP, the iframe renders blank. The fix on
+the **target** site (not this one):
 
 ```js
 // next.config.mjs of the embedded site
@@ -106,7 +130,7 @@ async headers() {
     source: "/(.*)",
     headers: [{
       key: "Content-Security-Policy",
-      value: "frame-ancestors 'self' https://*.daybreakstudio.com https://*.vercel.app http://localhost:3000",
+      value: "frame-ancestors 'self' https://*.daybreakstudio.studio https://*.vercel.app http://localhost:3000",
     }],
   }];
 }
@@ -121,38 +145,47 @@ and swap the iframe in `components/browser-preview.tsx` for an `<Image />`.
 
 ```
 app/
-  layout.tsx              Fonts, metadata, cursor-sun mount, console easter egg
-  page.tsx                Section order — change here to reorder the page
-  globals.css             Base styles, grain texture, logo hover, reduced-motion
+  layout.tsx               Fonts, metadata, JSON-LD, cursor-sun mount, console egg
+  page.tsx                 Section order — change here to reorder the page
+  globals.css              Base styles, grain texture, logo hover, reduced-motion
+  apple-icon.svg           High-res app icon used by iOS / macOS link previews
+  how-it-works/page.tsx    "/how-it-works" route — full process walkthrough
+
 components/
-  nav.tsx                 Sticky header, mobile slide-in menu
-  hero.tsx                Pill badge, hero-display headline, gradient orbs, scroll indicator
-  services.tsx            Three tier cards with icons, Most Popular highlight
-  work.tsx                Work section — featured + compact + pipeline note
-  browser-preview.tsx     Mac-style window frame wrapping the iframe / mobile mockup
-  case-study-modal.tsx    Project detail modal (uses Radix Dialog)
-  process.tsx             Four-step row with connecting line + dot grid
-  about.tsx               Two-column with photo block, principles + icons
-  contact.tsx             Form + alt contacts (stubbed)
-  footer.tsx              Logo, links, microcopy
-  logo.tsx                Horizon-line SVG mark + wordmark
-  cursor-sun.tsx          Easter-egg glow that lags the cursor (hover devices only)
-  TestimonialsSection.tsx.bak   Paused — see "Restoring Testimonials" above
+  nav.tsx                  Sticky header, mobile slide-in menu
+  hero.tsx                 Pill badge, hero-display headline, gradient orbs
+  services.tsx             Three tier cards with icons, Most Popular highlight
+  work.tsx                 Work section — featured + compact + pipeline note
+  browser-preview.tsx      Mac-style window frame wrapping iframe / mobile mockup
+  case-study-modal.tsx     Project detail modal (uses Radix Dialog)
+  process.tsx              Four-step row with primary + secondary lines
+  about.tsx                Two-column with photo block + principles + icons
+  faq.tsx                  Common-questions accordion (uses Radix Accordion)
+  contact.tsx              Form (Formspree) + 4-method grid + honeypot
+  footer.tsx               Logo, nav links, microcopy
+  logo.tsx                 Horizon-line SVG mark + wordmark
+  cursor-sun.tsx           Easter-egg glow trailing the cursor (hover devices only)
+  how-it-works-content.tsx Body content for /how-it-works
+  icons/
+    brand-icons.tsx        WhatsApp + Telegram SVGs (not in lucide)
   ui/
-    button.tsx            CVA variants
-    dialog.tsx            shadcn-style wrapper around @radix-ui/react-dialog
-    input.tsx
-    textarea.tsx
-    select.tsx
-    label.tsx
-    section-heading.tsx
+    button.tsx             CVA variants
+    dialog.tsx             shadcn-style wrapper around @radix-ui/react-dialog
+    accordion.tsx          shadcn-style wrapper around @radix-ui/react-accordion
+    input.tsx / textarea.tsx / select.tsx / label.tsx / section-heading.tsx
+  TestimonialsSection.tsx.bak  Paused — see "Restoring Testimonials"
+
 lib/
-  projects.ts             Project data (header comment explains how to add one)
-  utils.ts                `cn()` class merger
+  projects.ts              Project data (header comment explains how to add one)
+  contact-methods.ts       Email / Instagram / WhatsApp / Telegram (live + soon states)
+  utils.ts                 `cn()` class merger
+
 public/
-  favicon.svg             The horizon-line mark
-  projects/               (Add screenshots here, referenced from lib/projects.ts)
-tailwind.config.ts        Color palette, font variables, custom keyframes/animations
+  favicon.svg              The horizon-line mark (16/32/SVG-aware tabs)
+  projects/                Add screenshots here, referenced from lib/projects.ts
+  og-image.png             TODO: drop a 1200×630 social-share image here
+
+tailwind.config.ts         Color palette, font variables, custom keyframes
 ```
 
 ---
@@ -162,7 +195,7 @@ tailwind.config.ts        Color palette, font variables, custom keyframes/animat
 - **Colors** in `tailwind.config.ts`: `cream`, `paleBlue`, `accent`,
   `accentDeep`, `coral`, `charcoal`, `warmGray`.
 - **Type**: Geist Sans throughout, **Instrument Serif** as an italic accent
-  in headlines, the about greeting, project titles, and small flourishes.
+  in headlines and small flourishes.
 - **Animations** use Framer Motion's `whileInView` with a shared
   `[0.22, 1, 0.36, 1]` easing. Restrained on purpose — fades and short
   vertical translations only. `prefers-reduced-motion` short-circuits them

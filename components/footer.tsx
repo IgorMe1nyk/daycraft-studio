@@ -1,5 +1,5 @@
+import { Instagram } from "lucide-react";
 import { Logo } from "./logo";
-import { InstagramSoonLink } from "./instagram-soon-link";
 
 export default function Footer() {
   return (
@@ -61,9 +61,17 @@ export default function Footer() {
           >
             hello@daybreakstudio.studio
           </a>
-          {/* Instagram is paused until the @daybreakstudio account exists —
-              see components/instagram-soon-link.tsx. */}
-          <InstagramSoonLink className="text-warmGray hover:text-accent" />
+          {/* Instagram handle: daybreak.studio.nj — update here if the
+              username changes (also update lib/contact-methods.ts). */}
+          <a
+            href="https://instagram.com/daybreak.studio.nj"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-warmGray hover:text-accent transition-colors"
+          >
+            <Instagram className="size-3.5" aria-hidden />
+            @daybreak.studio.nj
+          </a>
         </div>
       </div>
     </footer>

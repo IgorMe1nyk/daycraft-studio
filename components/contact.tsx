@@ -1,62 +1,93 @@
 "use client";
 
+/* ─────────────────────────────────────────────────────────────────────────
+   CONTACT FORM — SETUP INSTRUCTIONS (Formspree)
+
+   This form POSTs to Formspree, which forwards every submission to my
+   inbox. Set it up once and forget about it.
+
+     1. Go to https://formspree.io and sign up using
+        hello@daybreakstudio.studio.
+     2. Click "+ New form" → name it "Daybreak Studio Contact".
+     3. Copy the form endpoint URL — it looks like:
+          https://formspree.io/f/xxxxxxxx
+     4. Replace the FORMSPREE_ENDPOINT constant below with your real
+        endpoint URL.
+     5. Verify the email Formspree sends to confirm ownership.
+     6. Done — submissions will arrive at hello@daybreakstudio.studio
+        within seconds of being sent.
+
+   Anti-spam: there's an invisible honeypot field named "website". Bots
+   tend to fill every field they see; if "website" comes back filled,
+   we silently drop the submission without bothering Formspree.
+
+   To change contact methods (Email / Instagram / WhatsApp / Telegram),
+   edit `lib/contact-methods.ts` — that file has its own setup notes.
+   ───────────────────────────────────────────────────────────────────── */
+
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
-import { InstagramSoonLink } from "./instagram-soon-link";
+import { Loader2 } from "lucide-react";
+import { LogoMark } from "./logo";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Select } from "./ui/select";
 import { Label } from "./ui/label";
 import { SectionHeading } from "./ui/section-heading";
+import { contactMethods, type ContactMethod } from "@/lib/contact-methods";
+import { cn } from "@/lib/utils";
+
+// 🔧 Replace with your real Formspree endpoint once the form is created.
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/REPLACE_WITH_REAL_ID";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
+type FormState = "idle" | "submitting" | "success" | "error";
+
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
+  const [state, setState] = useState<FormState>("idle");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitting(true);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
-    // ------------------------------------------------------------------
-    // TODO: Wire this up to a real handler. Three easy options:
-    //
-    // OPTION A — Formspree (zero backend, fastest):
-    //   1. Sign up at https://formspree.io and create a form.
-    //   2. On the <form> below, set:
-    //        action="https://formspree.io/f/YOUR_FORM_ID"
-    //        method="POST"
-    //      and remove the onSubmit handler — Formspree handles the rest.
-    //
-    // OPTION B — Resend + Next.js API route (more control):
-    //   1. npm install resend
-    //   2. Create app/api/contact/route.ts with a POST handler that uses
-    //      Resend (https://resend.com/docs/send-with-nextjs) to email you.
-    //   3. Replace this stub with:
-    //        const formData = new FormData(e.currentTarget);
-    //        const res = await fetch("/api/contact", {
-    //          method: "POST",
-    //          body: formData,
-    //        });
-    //        if (!res.ok) throw new Error("Failed");
-    //
-    // OPTION C — Plain mailto (no backend at all): change <form> to
-    //   action="mailto:hello@daybreakstudio.studio" method="POST"
-    //   encType="text/plain". Trade-off: opens the user's mail client.
-    // ------------------------------------------------------------------
+    // Honeypot — if the invisible field is filled, silently drop.
+    if (formData.get("website")) {
+      setState("success"); // pretend it worked so the bot moves on
+      return;
+    }
 
-    // Stub: pretend we sent it.
-    await new Promise((r) => setTimeout(r, 400));
-    setSubmitting(false);
-    setSubmitted(true);
+    // Min message length — match the inline hint shown under the textarea.
+    const message = String(formData.get("message") ?? "").trim();
+    if (message.length < 10) {
+      setState("error");
+      return;
+    }
+
+    setState("submitting");
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      setState("success");
+      form.reset();
+    } catch (err) {
+      // Don't swallow — log to console for debugging, but show the user a
+      // calm fallback that always works (email).
+      console.error("Contact form submission failed:", err);
+      setState("error");
+    }
   }
 
   return (
     <section id="contact" className="py-24 lg:py-32">
-      <div className="mx-auto max-w-3xl px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl px-6 lg:px-8">
         <SectionHeading
           eyebrow="Contact"
           title={
@@ -72,108 +103,285 @@ export default function Contact() {
           center
         />
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: easeOut }}
-          className="mt-12"
-        >
-          {submitted ? (
-            <div className="rounded-2xl border border-charcoal/10 bg-cream p-12 text-center">
-              <div className="text-3xl font-serif italic text-accent">
-                Got it.
-              </div>
-              <p className="mt-3 text-warmGray">
-                Thanks — I&apos;ll get back to you within 24 hours.
-              </p>
-            </div>
-          ) : (
-            <form
-              onSubmit={handleSubmit}
-              className="grid sm:grid-cols-2 gap-x-5 gap-y-4"
-              noValidate
-            >
-              <div className="sm:col-span-1">
-                <Label htmlFor="name">Name</Label>
-                <Input id="name" name="name" required placeholder="Jane Doe" />
-              </div>
-              <div className="sm:col-span-1">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="jane@business.com"
-                />
-              </div>
-              <div className="sm:col-span-1">
-                <Label htmlFor="business">
-                  Business name{" "}
-                  <span className="text-warmGray/60">(optional)</span>
-                </Label>
-                <Input
-                  id="business"
-                  name="business"
-                  placeholder="Sunrise Cafe"
-                />
-              </div>
-              <div className="sm:col-span-1">
-                <Label htmlFor="kind">What kind of site?</Label>
-                <Select id="kind" name="kind" defaultValue="" required>
-                  <option value="" disabled>
-                    Pick one
-                  </option>
-                  <option value="starter">Starter — One-Page</option>
-                  <option value="standard">Standard — Small Business</option>
-                  <option value="custom">Custom Build</option>
-                  <option value="not-sure">Not sure yet</option>
-                </Select>
-              </div>
-              <div className="sm:col-span-2">
-                <Label htmlFor="message">Tell me about your project</Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={5}
-                  placeholder="A few sentences about your business and what you're looking for."
-                />
-              </div>
-              <div className="sm:col-span-2 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
-                <p className="text-xs text-warmGray/80">
-                  No spam. No newsletters. Just a reply.
-                </p>
-                <Button
-                  type="submit"
-                  variant="primary"
-                  size="md"
-                  disabled={submitting}
+        <div className="mt-12 grid lg:grid-cols-5 gap-10 lg:gap-14 items-start">
+          {/* ── Form ─────────────────────────────────────────────────────── */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: easeOut }}
+            className="lg:col-span-3"
+          >
+            {state === "success" ? (
+              <SuccessState onReset={() => setState("idle")} />
+            ) : (
+              <form
+                action={FORMSPREE_ENDPOINT}
+                method="POST"
+                onSubmit={handleSubmit}
+                noValidate
+                className="grid sm:grid-cols-2 gap-x-5 gap-y-4"
+                aria-busy={state === "submitting"}
+              >
+                {/* Honeypot — invisible to humans, irresistible to bots. */}
+                <div
+                  aria-hidden="true"
+                  className="hidden"
+                  // tabindex/autocomplete intentionally weird so screen readers
+                  // and keyboard users never land here.
                 >
-                  {submitting ? "Sending…" : "Send message"}
-                </Button>
-              </div>
-            </form>
-          )}
+                  <label htmlFor="website">
+                    Leave this empty if you&apos;re human
+                  </label>
+                  <input
+                    id="website"
+                    name="website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
 
-          <div className="mt-12 pt-8 border-t border-charcoal/10 flex flex-col sm:flex-row gap-4 sm:gap-10 sm:items-center sm:justify-center text-sm">
-            <a
-              href="mailto:hello@daybreakstudio.studio"
-              className="inline-flex items-center gap-2 text-warmGray hover:text-accent transition-colors"
-            >
-              <Mail className="size-4" />
-              hello@daybreakstudio.studio
-            </a>
-            {/* Instagram is paused until the @daybreakstudio account exists —
-                see components/instagram-soon-link.tsx. */}
-            <InstagramSoonLink
-              showIcon
-              className="text-warmGray hover:text-accent"
-            />
-          </div>
-        </motion.div>
+                <div className="sm:col-span-1">
+                  <Label htmlFor="name">Name</Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    required
+                    autoComplete="name"
+                    placeholder="Jane Doe"
+                  />
+                </div>
+                <div className="sm:col-span-1">
+                  <Label htmlFor="email">Email</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    autoComplete="email"
+                    placeholder="jane@business.com"
+                  />
+                </div>
+                <div className="sm:col-span-1">
+                  <Label htmlFor="business">
+                    Business name{" "}
+                    <span className="text-warmGray/60">(optional)</span>
+                  </Label>
+                  <Input
+                    id="business"
+                    name="business"
+                    autoComplete="organization"
+                    placeholder="Sunrise Cafe"
+                  />
+                </div>
+                <div className="sm:col-span-1">
+                  <Label htmlFor="kind">What kind of site?</Label>
+                  <Select id="kind" name="kind" defaultValue="">
+                    <option value="" disabled>
+                      Pick one
+                    </option>
+                    <option value="starter">Starter — One-Page</option>
+                    <option value="standard">Standard — Small Business</option>
+                    <option value="custom">Custom Build</option>
+                    <option value="not-sure">Not sure yet</option>
+                  </Select>
+                </div>
+                <div className="sm:col-span-2">
+                  <Label htmlFor="message">Tell me about your project</Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    required
+                    minLength={10}
+                    rows={5}
+                    placeholder="A few sentences about your business and what you're looking for."
+                  />
+                </div>
+
+                {state === "error" && (
+                  <div
+                    role="alert"
+                    className="sm:col-span-2 text-sm text-[#A6453A] bg-[#FBEDE9] border border-[#E5BBB1] rounded-lg px-4 py-3"
+                  >
+                    Something went wrong. Please email{" "}
+                    <a
+                      href="mailto:hello@daybreakstudio.studio"
+                      className="underline underline-offset-2 hover:text-charcoal"
+                    >
+                      hello@daybreakstudio.studio
+                    </a>{" "}
+                    directly — I&apos;ll reply within 24 hours.
+                  </div>
+                )}
+
+                <div className="sm:col-span-2 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
+                  <p className="text-xs text-warmGray/80">
+                    No spam. No newsletters. Just a reply.
+                  </p>
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    size="md"
+                    disabled={state === "submitting"}
+                    className="min-w-[120px]"
+                  >
+                    {state === "submitting" ? (
+                      <>
+                        <Loader2 className="size-4 animate-spin" aria-hidden />
+                        Sending
+                      </>
+                    ) : (
+                      "Send"
+                    )}
+                  </Button>
+                </div>
+              </form>
+            )}
+          </motion.div>
+
+          {/* ── Alternative contact methods ─────────────────────────────── */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.1, ease: easeOut }}
+            className="lg:col-span-2"
+          >
+            <h3 className="text-[11px] tracking-[0.18em] text-warmGray uppercase">
+              Or reach me directly
+            </h3>
+            <ul className="mt-4 space-y-2.5">
+              {contactMethods.map((m) => (
+                <li key={m.id}>
+                  <ContactMethodRow method={m} />
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-xs text-warmGray/75 leading-relaxed">
+              Email is the fastest way to reach me. I reply within a few hours
+              most days.
+            </p>
+          </motion.div>
+        </div>
       </div>
     </section>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Single contact-method row. Renders as an <a> if live, or a <button>
+   that shows an alert if "soon". Same visual styling either way.
+   ───────────────────────────────────────────────────────────────────── */
+
+function ContactMethodRow({ method }: { method: ContactMethod }) {
+  const { label, state, display, Icon } = method;
+
+  const className = cn(
+    "group flex items-center gap-3 w-full text-left",
+    "rounded-xl border border-charcoal/[0.08] bg-cream",
+    "px-4 py-3.5",
+    "transition-all duration-300 ease-out",
+    "hover:-translate-y-0.5 hover:border-charcoal/20",
+    "hover:shadow-[0_4px_20px_-12px_rgba(26,26,26,0.18)]",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-cream",
+    state === "soon" && "cursor-default",
+  );
+
+  const inner = (
+    <>
+      <span
+        className={cn(
+          "shrink-0 inline-flex size-9 items-center justify-center rounded-lg",
+          state === "live"
+            ? "bg-accent/12 text-accent"
+            : "bg-paleBlue/60 text-warmGray",
+        )}
+      >
+        <Icon className="size-4" aria-hidden />
+      </span>
+      <span className="flex-1 min-w-0">
+        <span className="block text-[11px] tracking-[0.14em] text-warmGray uppercase">
+          {label}
+        </span>
+        <span
+          className={cn(
+            "block text-sm truncate",
+            state === "live"
+              ? "text-charcoal group-hover:text-accent transition-colors"
+              : "text-warmGray/80",
+          )}
+        >
+          {display}
+        </span>
+      </span>
+      {state === "soon" && (
+        <span className="shrink-0 text-[9px] tracking-[0.18em] uppercase text-warmGray/70 bg-paleBlue/60 border border-charcoal/[0.06] rounded-full px-2 py-0.5">
+          Soon
+        </span>
+      )}
+    </>
+  );
+
+  if (state === "live" && method.href) {
+    return (
+      <a
+        href={method.href}
+        target={method.openInNewTab ? "_blank" : undefined}
+        rel={method.openInNewTab ? "noopener noreferrer" : undefined}
+        aria-label={`${label}: ${display}`}
+        className={className}
+      >
+        {inner}
+      </a>
+    );
+  }
+
+  // "soon" — render as a button that shows the placeholder alert.
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        // eslint-disable-next-line no-alert
+        if (method.alert) alert(method.alert);
+      }}
+      aria-label={`${label}: ${display}`}
+      className={className}
+    >
+      {inner}
+    </button>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Success state — replaces the form after a successful submission.
+   ───────────────────────────────────────────────────────────────────── */
+
+function SuccessState({ onReset }: { onReset: () => void }) {
+  return (
+    <motion.div
+      key="success"
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: easeOut }}
+      className="rounded-2xl border border-charcoal/10 bg-cream p-10 sm:p-14 text-center"
+    >
+      <div className="mx-auto flex items-center justify-center size-14 rounded-full bg-accent/10">
+        <LogoMark className="h-6 w-auto" />
+      </div>
+      <h3 className="mt-6 text-3xl font-serif italic text-charcoal">
+        Thanks for reaching out.
+      </h3>
+      <p className="mt-3 text-warmGray text-[15px] leading-relaxed">
+        I&apos;ll reply within 24 hours — usually a lot sooner.
+      </p>
+      <button
+        type="button"
+        onClick={onReset}
+        className="mt-8 text-sm text-warmGray hover:text-accent underline underline-offset-4 decoration-charcoal/15 hover:decoration-accent transition-colors"
+      >
+        Send another message
+      </button>
+    </motion.div>
   );
 }

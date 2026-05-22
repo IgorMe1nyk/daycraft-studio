@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <!-- Higher-res mark used by iOS home-screen + macOS link previews. Next.js
+       auto-serves this from /apple-icon.svg — no metadata wiring needed. -->
+  <rect width="180" height="180" rx="40" fill="#FAF8F3"/>
+  <line x1="32" y1="112" x2="148" y2="112" stroke="#1A1A1A" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="68" cy="86" r="20" fill="#6B8CAE"/>
+</svg>
