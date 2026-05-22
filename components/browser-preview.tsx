@@ -8,29 +8,32 @@ interface Props {
   liveUrl: string;
   /** Pretty URL shown in the fake address bar (can be the planned domain). */
   displayUrl: string;
-  /** Used in aria-labels and the mobile mockup heading. */
+  /** Used in the aria-label so screen readers identify the link clearly. */
   name: string;
   className?: string;
 }
 
 /**
- * BrowserPreview — a refined Mac-style window frame wrapping a live iframe
- * of the project on desktop, and a stylized soft-blue placeholder on mobile
- * (where iframes are too small to be useful). The whole frame is a single
- * anchor that opens the live site in a new tab.
+ * BrowserPreview — a refined Mac-style window frame wrapping a scaled iframe
+ * of the project. The whole frame is a single anchor that opens the live site
+ * in a new tab.
  *
  * Visible content is intentionally minimal:
  *   • Traffic-light dots + the displayUrl text in the address bar.
- *   • Either the iframe (desktop) or the mobile placeholder.
- *   • A "View live ↗" pill that fades in on hover (desktop only).
+ *   • The scaled iframe (works on every viewport — see notes below).
+ *   • A "View live ↗" pill: always visible on touch devices, fades in on
+ *     hover on devices with a real pointer.
  *
  * The iframe is pointer-events:none, tabIndex=-1, aria-hidden so visitors
  * can never accidentally interact with it. Click anywhere on the frame to
- * open the real site.
+ * open the real site in a new tab.
  *
- * TODO: When a real mobile screenshot exists at /public/projects/<id>.png,
- * swap the placeholder gradient div below for an <Image fill /> using that
- * path. Until then this stays a tasteful brand-coloured placeholder.
+ * Notes on mobile:
+ *   We render the same scaled iframe on every viewport. The wedding site is
+ *   responsive, so inside a ~320px parent the iframe sees a ~640px viewport
+ *   (because of the 2× width + scale-50 trick) and renders its tablet/mobile
+ *   layout — which is exactly what we want a phone visitor to see.
+ *   Iframe has loading="lazy" so it only fetches when scrolled into view.
  */
 export function BrowserPreview({
   liveUrl,
@@ -72,9 +75,9 @@ export function BrowserPreview({
 
       {/* ── Preview viewport ──────────────────────────────────────────── */}
       <div className="relative aspect-[16/10] bg-paleBlue/20 overflow-hidden">
-        {/* DESKTOP: scaled iframe of the real site (md and up).
-            origin-top-left + scale-50 + w/h 200% renders the page at desktop
-            viewport size and shrinks it visually to fit the preview. */}
+        {/* Scaled iframe — origin-top-left + scale-50 + w/h 200% renders the
+            page at a desktop-ish viewport size and visually shrinks it to fit
+            the preview frame. Works on every breakpoint. */}
         <iframe
           src={liveUrl}
           title={`${name} live preview`}
@@ -82,21 +85,27 @@ export function BrowserPreview({
           sandbox="allow-same-origin allow-scripts allow-popups"
           tabIndex={-1}
           aria-hidden="true"
-          className="hidden md:block absolute top-0 left-0 origin-top-left scale-50 w-[200%] h-[200%] pointer-events-none select-none border-0 bg-cream"
+          className="absolute top-0 left-0 origin-top-left scale-50 w-[200%] h-[200%] pointer-events-none select-none border-0 bg-cream"
         />
 
-        {/* MOBILE: soft-blue brand-coloured placeholder (below md). Nothing
-            else is rendered here — just a quiet gradient and a hint. */}
-        <div className="md:hidden absolute inset-0 bg-gradient-to-br from-paleBlue via-paleBlue/80 to-accent/20 flex items-center justify-center">
-          <span className="inline-flex items-center gap-1.5 text-[11px] tracking-[0.22em] uppercase text-charcoal/65">
-            Tap to view live
-            <ArrowUpRight className="size-3" strokeWidth={2} />
-          </span>
-        </div>
-
-        {/* Hover hint pill — only on devices with hover (desktop). */}
-        <div className="hidden md:flex absolute inset-0 items-end justify-end p-5 bg-gradient-to-t from-charcoal/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <span className="inline-flex items-center gap-1.5 bg-cream text-charcoal px-3.5 py-1.5 rounded-full text-xs font-medium shadow-[0_4px_14px_-2px_rgba(0,0,0,0.25)]">
+        {/* "View live" affordance.
+            • On touch devices (no hover): always visible — visitors need a
+              clear cue that the frame is tappable.
+            • On hover-capable devices: a soft dark gradient + the pill fade
+              in only while hovering, so the preview content stays clean. */}
+        <div
+          className={cn(
+            "absolute inset-0 flex items-end justify-end p-3 sm:p-5",
+            "bg-gradient-to-t from-charcoal/30 via-transparent to-transparent",
+            "transition-opacity duration-300",
+            // Default: visible (covers touch / no-hover devices).
+            "opacity-100",
+            // On real-hover devices: hide unless hovering the frame.
+            "[@media(hover:hover)]:opacity-0",
+            "[@media(hover:hover)]:group-hover:opacity-100",
+          )}
+        >
+          <span className="inline-flex items-center gap-1.5 bg-cream text-charcoal px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-medium shadow-[0_4px_14px_-2px_rgba(0,0,0,0.25)]">
             View live
             <ArrowUpRight className="size-3" strokeWidth={2} />
           </span>
