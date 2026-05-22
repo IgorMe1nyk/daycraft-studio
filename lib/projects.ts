@@ -82,10 +82,17 @@ export const projects: Project[] = [
       "A romantic, fully-featured wedding website with custom RSVP flow, schedule, menu, registry, and travel info.",
     longDesc:
       "A custom wedding website built for a couple celebrating in the Hudson Valley. Designed with romantic elegance in mind — soft typography, hand-drawn botanical details, and a thoughtful multi-step RSVP flow that captures meal preferences, dietary needs, and song requests. The site includes a complete schedule, family-style menu, registry links, travel and accommodation info, dress code with color palette inspiration, photo sharing, and an FAQ — everything a guest needs in one elegant page.",
-    // Custom subdomain is live. Both the iframe and the "Visit Live Site"
-    // button point here. Keep liveUrl as the full https URL; displayUrl
-    // shows the bare host in the fake browser address bar.
-    liveUrl: "https://emily-and-james.daybreakstudio.studio",
+    // `liveUrl` is the URL the iframe actually loads and that the "Visit
+    // live site" button opens. It must resolve. `displayUrl` is purely
+    // cosmetic — it's the text shown in the fake browser frame's address
+    // bar, so it can be the polished/future URL.
+    //
+    // TODO: Once the `emily-and-james` subdomain is configured in Vercel
+    // (Settings → Domains on the wedding-site project), switch `liveUrl`
+    // to "https://emily-and-james.daybreakstudio.studio" so visitors get
+    // the polished URL on click too. Until then, keep it on the working
+    // vercel.app host so the iframe and the button actually work.
+    liveUrl: "https://emily-and-james-wedding.vercel.app",
     displayUrl: "emily-and-james.daybreakstudio.studio",
     // TODO: Drop a real screenshot at this path (recommend 750×1334 portrait).
     mobilePreview: "/projects/emily-james-mobile-preview.png",
