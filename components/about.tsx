@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Zap, MessageCircle, Award, Coins, User } from "lucide-react";
+import { Zap, MessageCircle, Award, Coins } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
@@ -60,34 +61,20 @@ export default function About() {
                 className="absolute -inset-4 -z-20 rounded-3xl bg-gradient-to-br from-accent/10 via-transparent to-paleBlue/0 blur-2xl"
               />
 
-              {/* TODO: Replace placeholder with <Image src="/igor-photo.jpg"
-                  alt="Igor Melnyk" ... /> once photo is uploaded to /public/.
-
-                  Drop your photo at /public/igor-photo.jpg (recommend
-                  ~1000x1250, JPG), then:
-
-                    import Image from "next/image";
-
-                    <Image
-                      src="/igor-photo.jpg"
-                      alt="Igor Melnyk — Daybreak Studio"
-                      fill
-                      priority
-                      sizes="(max-width: 768px) 100vw, 40vw"
-                      className="object-cover"
-                    />
-              */}
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-paleBlue via-paleBlue/70 to-accent/15 ring-1 ring-charcoal/[0.04]">
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-                  <User
-                    className="size-28 text-charcoal/25"
-                    strokeWidth={1.25}
-                    aria-hidden
-                  />
-                  <span className="text-[10px] tracking-[0.22em] uppercase text-charcoal/45">
-                    Photo coming soon
-                  </span>
-                </div>
+              {/* Photo. To swap the image, drop a new portrait JPG at
+                  /public/igor-photo.jpg (recommend ~1000x1250) — next/image
+                  handles compression, resizing, and modern-format serving
+                  automatically. The pale-blue background only shows briefly
+                  while the image loads. */}
+              <div className="group relative aspect-[4/5] rounded-2xl overflow-hidden bg-paleBlue/40 ring-1 ring-charcoal/[0.06] shadow-[0_8px_28px_-12px_rgba(26,26,26,0.18)] transition-shadow duration-500 hover:shadow-[0_14px_40px_-12px_rgba(26,26,26,0.26)]">
+                <Image
+                  src="/igor-photo.jpg"
+                  alt="Igor Melnyk, founder of Daybreak Studio"
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                />
               </div>
             </div>
           </motion.div>
