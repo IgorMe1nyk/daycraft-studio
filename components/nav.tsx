@@ -6,12 +6,15 @@ import { Menu, X } from "lucide-react";
 import { Logo } from "./logo";
 import { cn } from "@/lib/utils";
 
+// Anchor hrefs use the `/#section` form so they work from any page (when on
+// /how-it-works, clicking "Services" should go home and scroll). Browsers
+// treat `/#x` on the home page as a same-page hash change → smooth scroll.
 const links = [
-  { href: "#services", label: "Services" },
-  { href: "#work", label: "Work" },
-  { href: "#process", label: "Process" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#services", label: "Services" },
+  { href: "/#work", label: "Work" },
+  { href: "/#process", label: "Process" },
+  { href: "/#about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Nav() {
@@ -48,7 +51,7 @@ export default function Nav() {
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8 h-16 flex items-center justify-between">
         <a
-          href="#top"
+          href="/"
           aria-label="Daybreak Studio — home"
           className="-m-2 p-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
         >
@@ -69,7 +72,7 @@ export default function Nav() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/#contact"
             className="text-sm text-charcoal hover:text-accent transition-colors"
           >
             Start a project →

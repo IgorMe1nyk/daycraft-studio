@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap, MessageCircle, Award, Coins } from "lucide-react";
+import { Zap, MessageCircle, Award, Coins, User } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
@@ -60,25 +60,32 @@ export default function About() {
                 className="absolute -inset-4 -z-20 rounded-3xl bg-gradient-to-br from-accent/10 via-transparent to-paleBlue/0 blur-2xl"
               />
 
-              {/*
-                TODO: Replace this placeholder with your real photo.
-                Drop your photo at /public/me.jpg (recommend ~1000x1250, JPG), then:
+              {/* TODO: Replace placeholder with <Image src="/igor-photo.jpg"
+                  alt="Igor Melnyk" ... /> once photo is uploaded to /public/.
 
-                  import Image from "next/image";
+                  Drop your photo at /public/igor-photo.jpg (recommend
+                  ~1000x1250, JPG), then:
 
-                  <Image
-                    src="/me.jpg"
-                    alt="Igor Melnyk — Daybreak Studio"
-                    width={520}
-                    height={650}
-                    priority
-                    className="w-full h-full object-cover"
-                  />
+                    import Image from "next/image";
+
+                    <Image
+                      src="/igor-photo.jpg"
+                      alt="Igor Melnyk — Daybreak Studio"
+                      fill
+                      priority
+                      sizes="(max-width: 768px) 100vw, 40vw"
+                      className="object-cover"
+                    />
               */}
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-[#E8EEF4] via-[#D9C2A6]/40 to-[#9DB6CD]/70 ring-1 ring-charcoal/[0.04]">
-                <div className="absolute inset-0 grid place-items-center">
-                  <span className="text-[11px] tracking-[0.18em] uppercase text-charcoal/30">
-                    Your photo goes here
+              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-paleBlue via-paleBlue/70 to-accent/15 ring-1 ring-charcoal/[0.04]">
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+                  <User
+                    className="size-28 text-charcoal/25"
+                    strokeWidth={1.25}
+                    aria-hidden
+                  />
+                  <span className="text-[10px] tracking-[0.22em] uppercase text-charcoal/45">
+                    Photo coming soon
                   </span>
                 </div>
               </div>
@@ -175,6 +182,27 @@ export default function About() {
                   );
                 })}
               </div>
+
+              {/* Currently building — a quiet "live" status line. The green
+                  dot reuses Tailwind's built-in `animate-ping` for a gentle
+                  pulse, signalling this isn't a static page. */}
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.5, delay: 0.5, ease: easeOut }}
+                className="mt-8 flex items-center gap-2.5 text-sm italic text-warmGray"
+              >
+                <span
+                  className="relative inline-flex size-2 shrink-0"
+                  aria-hidden
+                >
+                  <span className="absolute inset-0 rounded-full bg-emerald-500/50 animate-ping" />
+                  <span className="relative inline-block size-2 rounded-full bg-emerald-500" />
+                </span>
+                Currently building: a barbershop website for a local Passaic
+                shop.
+              </motion.p>
             </div>
           </div>
         </div>

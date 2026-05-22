@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Instagram } from "lucide-react";
+import { Mail } from "lucide-react";
+import { InstagramSoonLink } from "./instagram-soon-link";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -43,7 +44,7 @@ export default function Contact() {
     //        if (!res.ok) throw new Error("Failed");
     //
     // OPTION C — Plain mailto (no backend at all): change <form> to
-    //   action="mailto:hello@daybreakstudio.com" method="POST"
+    //   action="mailto:hello@daybreakstudio.studio" method="POST"
     //   encType="text/plain". Trade-off: opens the user's mail client.
     // ------------------------------------------------------------------
 
@@ -157,24 +158,19 @@ export default function Contact() {
           )}
 
           <div className="mt-12 pt-8 border-t border-charcoal/10 flex flex-col sm:flex-row gap-4 sm:gap-10 sm:items-center sm:justify-center text-sm">
-            {/* TODO: Replace with your real email */}
             <a
-              href="mailto:hello@daybreakstudio.com"
+              href="mailto:hello@daybreakstudio.studio"
               className="inline-flex items-center gap-2 text-warmGray hover:text-accent transition-colors"
             >
               <Mail className="size-4" />
-              hello@daybreakstudio.com
+              hello@daybreakstudio.studio
             </a>
-            {/* TODO: Replace with your real Instagram handle */}
-            <a
-              href="https://instagram.com/daybreakstudio"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 text-warmGray hover:text-accent transition-colors"
-            >
-              <Instagram className="size-4" />
-              @daybreakstudio
-            </a>
+            {/* Instagram is paused until the @daybreakstudio account exists —
+                see components/instagram-soon-link.tsx. */}
+            <InstagramSoonLink
+              showIcon
+              className="text-warmGray hover:text-accent"
+            />
           </div>
         </motion.div>
       </div>

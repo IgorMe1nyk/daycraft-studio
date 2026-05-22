@@ -121,7 +121,6 @@ function FeaturedCard({ project, index, onOpenDetails }: CardProps) {
           liveUrl={project.liveUrl}
           displayUrl={project.displayUrl}
           name={project.name}
-          mobilePreview={project.mobilePreview}
         />
       </div>
 
@@ -206,7 +205,6 @@ function CompactCard({ project, index, onOpenDetails }: CardProps) {
         liveUrl={project.liveUrl}
         displayUrl={project.displayUrl}
         name={project.name}
-        mobilePreview={project.mobilePreview}
         className="pointer-events-none"
       />
       <div className="mt-4">

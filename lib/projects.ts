@@ -82,19 +82,16 @@ export const projects: Project[] = [
       "A romantic, fully-featured wedding website with custom RSVP flow, schedule, menu, registry, and travel info.",
     longDesc:
       "A custom wedding website built for a couple celebrating in the Hudson Valley. Designed with romantic elegance in mind — soft typography, hand-drawn botanical details, and a thoughtful multi-step RSVP flow that captures meal preferences, dietary needs, and song requests. The site includes a complete schedule, family-style menu, registry links, travel and accommodation info, dress code with color palette inspiration, photo sharing, and an FAQ — everything a guest needs in one elegant page.",
-    // TODO: Once the custom domain is set up, the iframe will continue pointing
-    // at the vercel.app URL (it's fine — they redirect to each other), but you
-    // can update this `liveUrl` to the custom domain to send visitors there
-    // directly when they click "Visit Live Site".
-    liveUrl: "https://emily-and-james-wedding.vercel.app",
-    // The polished URL displayed in the fake browser's address bar. Update
-    // this whenever the canonical public URL changes.
+    // Custom subdomain is live. Both the iframe and the "Visit Live Site"
+    // button point here. Keep liveUrl as the full https URL; displayUrl
+    // shows the bare host in the fake browser address bar.
+    liveUrl: "https://emily-and-james.daybreakstudio.studio",
     displayUrl: "emily-and-james.daybreakstudio.studio",
     // TODO: Drop a real screenshot at this path (recommend 750×1334 portrait).
     mobilePreview: "/projects/emily-james-mobile-preview.png",
     tier: "Starter",
     price: "$350",
-    buildTime: "Built in 3 days",
+    buildTime: "Built in 1 day",
     featured: true,
     cardFeatures: [
       { label: "Custom RSVP Flow", Icon: ListChecks },

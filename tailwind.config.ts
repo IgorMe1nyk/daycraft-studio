@@ -46,6 +46,10 @@ const config: Config = {
         "overlay-out": "overlay-out 150ms ease-out forwards",
         "modal-in": "modal-in 280ms cubic-bezier(0.22, 1, 0.36, 1)",
         "modal-out": "modal-out 200ms cubic-bezier(0.22, 1, 0.36, 1) forwards",
+        "accordion-down":
+          "accordion-down 280ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "accordion-up":
+          "accordion-up 240ms cubic-bezier(0.22, 1, 0.36, 1) forwards",
       },
       keyframes: {
         "sun-pulse": {
@@ -73,6 +77,20 @@ const config: Config = {
             opacity: "0",
             transform: "translate(-50%, -49%) scale(0.98)",
           },
+        },
+        "accordion-down": {
+          from: { height: "0", opacity: "0" },
+          to: {
+            height: "var(--radix-accordion-content-height)",
+            opacity: "1",
+          },
+        },
+        "accordion-up": {
+          from: {
+            height: "var(--radix-accordion-content-height)",
+            opacity: "1",
+          },
+          to: { height: "0", opacity: "0" },
         },
       },
     },

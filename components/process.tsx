@@ -10,21 +10,28 @@ const steps = [
     n: "01",
     title: "We chat",
     desc: "15 min message or quick call to understand what you need.",
+    detail:
+      "I'll ask about your business, your goals, and show you the right tier for you.",
   },
   {
     n: "02",
     title: "I design",
     desc: "You get a preview within a few days.",
+    detail:
+      "I send you a live link you can open on any device — no logins, no software.",
   },
   {
     n: "03",
     title: "We refine",
     desc: "Two rounds of revisions included.",
+    detail: "Tell me what to change, I update it within 24 hours, repeat.",
   },
   {
     n: "04",
     title: "You launch",
     desc: "Your site goes live and I'm there for support.",
+    detail:
+      "I connect your domain, hand you the keys, and stay available for questions.",
   },
 ];
 
@@ -84,6 +91,9 @@ export default function Process() {
                   </h3>
                   <p className="mt-2 text-warmGray text-[15px] leading-relaxed max-w-[18rem]">
                     {s.desc}
+                  </p>
+                  <p className="mt-2 text-warmGray/70 text-[13px] leading-relaxed max-w-[18rem]">
+                    {s.detail}
                   </p>
                 </div>
 

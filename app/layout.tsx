@@ -78,7 +78,7 @@ export default function RootLayout({
           {`
             try {
               console.log(
-                "%cDaybreak Studio %c· crafted before the sun comes up\\n%cWant a site like this? hello@daybreakstudio.com",
+                "%cDaybreak Studio %c· crafted before the sun comes up\\n%cWant a site like this? hello@daybreakstudio.studio",
                 "color:#1A1A1A;font-weight:600;font-size:14px;",
                 "color:#6B8CAE;font-style:italic;font-size:13px;",
                 "color:#666;font-size:12px;"

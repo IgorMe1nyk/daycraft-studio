@@ -1,4 +1,5 @@
 import { Logo } from "./logo";
+import { InstagramSoonLink } from "./instagram-soon-link";
 
 export default function Footer() {
   return (
@@ -19,51 +20,50 @@ export default function Footer() {
 
         <div className="flex flex-wrap md:justify-end gap-x-7 gap-y-3 text-sm">
           <a
-            href="#services"
+            href="/#services"
             className="text-warmGray hover:text-charcoal transition-colors"
           >
             Services
           </a>
           <a
-            href="#work"
+            href="/#work"
             className="text-warmGray hover:text-charcoal transition-colors"
           >
             Work
           </a>
           <a
-            href="#process"
+            href="/#process"
             className="text-warmGray hover:text-charcoal transition-colors"
           >
             Process
           </a>
           <a
-            href="#about"
+            href="/#about"
             className="text-warmGray hover:text-charcoal transition-colors"
           >
             About
           </a>
           <a
-            href="#contact"
+            href="/#contact"
             className="text-warmGray hover:text-charcoal transition-colors"
           >
             Contact
           </a>
-          {/* TODO: Replace with your real email */}
           <a
-            href="mailto:hello@daybreakstudio.com"
+            href="/how-it-works"
+            className="text-warmGray hover:text-charcoal transition-colors"
+          >
+            How it works
+          </a>
+          <a
+            href="mailto:hello@daybreakstudio.studio"
             className="text-warmGray hover:text-accent transition-colors"
           >
-            hello@daybreakstudio.com
+            hello@daybreakstudio.studio
           </a>
-          {/* TODO: Replace with your real Instagram handle */}
-          <a
-            href="https://instagram.com/daybreakstudio"
-            target="_blank"
-            rel="noreferrer"
-            className="text-warmGray hover:text-accent transition-colors"
-          >
-            @daybreakstudio
-          </a>
+          {/* Instagram is paused until the @daybreakstudio account exists —
+              see components/instagram-soon-link.tsx. */}
+          <InstagramSoonLink className="text-warmGray hover:text-accent" />
         </div>
       </div>
     </footer>

@@ -60,7 +60,7 @@ export default function Hero() {
             <span className="relative size-2 rounded-full bg-accent" />
           </span>
           <span className="text-xs text-charcoal/80 font-medium tracking-tight">
-            Available for new projects · 2026
+            Booking June–July 2026 · 2 spots open
           </span>
         </motion.div>
 

@@ -4,10 +4,11 @@ import Services from "@/components/services";
 import Work from "@/components/work";
 import Process from "@/components/process";
 import About from "@/components/about";
+import FAQ from "@/components/faq";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 
-// Section order: Hero → Services → Work → Process → About → Contact
+// Section order: Hero → Services → Work → Process → About → FAQ → Contact
 //
 // Testimonials is still paused — its backup lives alongside as
 // TestimonialsSection.tsx.bak with full re-enable instructions at the
@@ -22,6 +23,7 @@ export default function Home() {
         <Work />
         <Process />
         <About />
+        <FAQ />
         <Contact />
       </main>
       <Footer />
