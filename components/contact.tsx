@@ -21,8 +21,8 @@
    tend to fill every field they see; if "website" comes back filled,
    we silently drop the submission without bothering Formspree.
 
-   To change contact methods (Email / Instagram / WhatsApp / Telegram),
-   edit `lib/contact-methods.ts` — that file has its own setup notes.
+   To change contact methods (Email / Phone / Instagram), edit
+   `lib/contact-methods.ts` — that file has its own setup notes.
    ───────────────────────────────────────────────────────────────────── */
 
 import { useState } from "react";
@@ -260,8 +260,7 @@ export default function Contact() {
               ))}
             </ul>
             <p className="mt-6 text-xs text-warmGray/75 leading-relaxed">
-              Email is the fastest way to reach me. I reply within a few hours
-              most days.
+              Email is the fastest way to reach me. Replies within 24 hours.
             </p>
           </motion.div>
         </div>
@@ -271,86 +270,41 @@ export default function Contact() {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   Single contact-method row. Renders as an <a> if live, or a <button>
-   that shows an alert if "soon". Same visual styling either way.
+   Single contact-method row. Every method is a real link now — always
+   renders as an <a>. Hover lifts, focus shows the accent ring.
    ───────────────────────────────────────────────────────────────────── */
 
 function ContactMethodRow({ method }: { method: ContactMethod }) {
-  const { label, state, display, Icon } = method;
+  const { label, display, href, Icon, openInNewTab } = method;
 
-  const className = cn(
-    "group flex items-center gap-3 w-full text-left",
-    "rounded-xl border border-charcoal/[0.08] bg-cream",
-    "px-4 py-3.5",
-    "transition-all duration-300 ease-out",
-    "hover:-translate-y-0.5 hover:border-charcoal/20",
-    "hover:shadow-[0_4px_20px_-12px_rgba(26,26,26,0.18)]",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-cream",
-    state === "soon" && "cursor-default",
-  );
-
-  const inner = (
-    <>
-      <span
-        className={cn(
-          "shrink-0 inline-flex size-9 items-center justify-center rounded-lg",
-          state === "live"
-            ? "bg-accent/12 text-accent"
-            : "bg-paleBlue/60 text-warmGray",
-        )}
-      >
+  return (
+    <a
+      href={href}
+      target={openInNewTab ? "_blank" : undefined}
+      rel={openInNewTab ? "noopener noreferrer" : undefined}
+      aria-label={`${label}: ${display}`}
+      className={cn(
+        "group flex items-center gap-3 w-full text-left",
+        "rounded-xl border border-charcoal/[0.08] bg-cream",
+        "px-4 py-3.5",
+        "transition-all duration-300 ease-out",
+        "hover:-translate-y-0.5 hover:border-charcoal/20",
+        "hover:shadow-[0_4px_20px_-12px_rgba(26,26,26,0.18)]",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-cream",
+      )}
+    >
+      <span className="shrink-0 inline-flex size-9 items-center justify-center rounded-lg bg-accent/12 text-accent">
         <Icon className="size-4" aria-hidden />
       </span>
       <span className="flex-1 min-w-0">
         <span className="block text-[11px] tracking-[0.14em] text-warmGray uppercase">
           {label}
         </span>
-        <span
-          className={cn(
-            "block text-sm truncate",
-            state === "live"
-              ? "text-charcoal group-hover:text-accent transition-colors"
-              : "text-warmGray/80",
-          )}
-        >
+        <span className="block text-sm truncate text-charcoal group-hover:text-accent transition-colors">
           {display}
         </span>
       </span>
-      {state === "soon" && (
-        <span className="shrink-0 text-[9px] tracking-[0.18em] uppercase text-warmGray/70 bg-paleBlue/60 border border-charcoal/[0.06] rounded-full px-2 py-0.5">
-          Soon
-        </span>
-      )}
-    </>
-  );
-
-  if (state === "live" && method.href) {
-    return (
-      <a
-        href={method.href}
-        target={method.openInNewTab ? "_blank" : undefined}
-        rel={method.openInNewTab ? "noopener noreferrer" : undefined}
-        aria-label={`${label}: ${display}`}
-        className={className}
-      >
-        {inner}
-      </a>
-    );
-  }
-
-  // "soon" — render as a button that shows the placeholder alert.
-  return (
-    <button
-      type="button"
-      onClick={() => {
-        // eslint-disable-next-line no-alert
-        if (method.alert) alert(method.alert);
-      }}
-      aria-label={`${label}: ${display}`}
-      className={className}
-    >
-      {inner}
-    </button>
+    </a>
   );
 }
 

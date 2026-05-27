@@ -66,22 +66,6 @@ export default function Work() {
           </div>
         )}
 
-        {/* ── Pipeline note ───────────────────────────────────────────── */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="mt-16 lg:mt-20 text-center text-sm text-warmGray"
-        >
-          <span className="inline-flex items-center gap-2.5">
-            <span className="size-1.5 rounded-full bg-accent/70 animate-sun-pulse" />
-            <span className="font-serif italic">
-              More projects in progress — a small business site and a
-              quinceañera celebration site are coming next.
-            </span>
-          </span>
-        </motion.p>
       </div>
 
       <CaseStudyModal

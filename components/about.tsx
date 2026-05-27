@@ -187,8 +187,8 @@ export default function About() {
                   <span className="absolute inset-0 rounded-full bg-emerald-500/50 animate-ping" />
                   <span className="relative inline-block size-2 rounded-full bg-emerald-500" />
                 </span>
-                Currently building: a barbershop website for a local Passaic
-                shop.
+                Currently in design: an editorial photography portfolio for a
+                NY/NJ wedding photographer.
               </motion.p>
             </div>
           </div>

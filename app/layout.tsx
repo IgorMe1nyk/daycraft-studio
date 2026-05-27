@@ -85,18 +85,20 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "Daybreak Studio",
-  description:
-    "Web design studio for small businesses in North Jersey. Clean, fast, affordable websites delivered in days.",
+  description: "Web design for small businesses in North Jersey",
   url: SITE_URL,
+  telephone: "+1-201-771-0092",
   email: "hello@daybreakstudio.studio",
   founder: {
     "@type": "Person",
     name: "Igor Melnyk",
   },
-  areaServed: {
-    "@type": "Place",
-    name: "North Jersey, USA",
+  address: {
+    "@type": "PostalAddress",
+    addressRegion: "NJ",
+    addressCountry: "US",
   },
+  areaServed: "New Jersey",
   priceRange: "$350–$1,200+",
   knowsAbout: [
     "Web design",
@@ -106,6 +108,7 @@ const structuredData = {
   ],
   image: `${SITE_URL}/og-image.png`,
   logo: `${SITE_URL}/favicon.svg`,
+  sameAs: ["https://instagram.com/daybreak.studio.nj"],
 };
 
 export default function RootLayout({

@@ -1,4 +1,4 @@
-import { Instagram } from "lucide-react";
+import { Instagram, Phone } from "lucide-react";
 import { Logo } from "./logo";
 
 export default function Footer() {
@@ -60,6 +60,13 @@ export default function Footer() {
             className="text-warmGray hover:text-accent transition-colors"
           >
             hello@daybreakstudio.studio
+          </a>
+          <a
+            href="tel:+12017710092"
+            className="inline-flex items-center gap-1.5 text-warmGray hover:text-accent transition-colors"
+          >
+            <Phone className="size-3.5" aria-hidden />
+            (201) 771-0092
           </a>
           {/* Instagram handle: daybreak.studio.nj — update here if the
               username changes (also update lib/contact-methods.ts). */}

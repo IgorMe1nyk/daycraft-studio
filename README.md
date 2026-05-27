@@ -166,8 +166,6 @@ components/
   logo.tsx                 Horizon-line SVG mark + wordmark
   cursor-sun.tsx           Easter-egg glow trailing the cursor (hover devices only)
   how-it-works-content.tsx Body content for /how-it-works
-  icons/
-    brand-icons.tsx        WhatsApp + Telegram SVGs (not in lucide)
   ui/
     button.tsx             CVA variants
     dialog.tsx             shadcn-style wrapper around @radix-ui/react-dialog
