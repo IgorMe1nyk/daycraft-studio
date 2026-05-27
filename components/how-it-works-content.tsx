@@ -63,7 +63,7 @@ function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: easeOut }}
-          className="mt-4 text-4xl sm:text-5xl lg:text-6xl tracking-[-0.025em] text-charcoal leading-[1.05] font-medium"
+          className="mt-4 font-display font-medium text-h1 text-charcoal"
         >
           How working with{" "}
           <span className="font-serif italic font-normal text-accent">
@@ -162,7 +162,7 @@ function Stages() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: easeOut }}
-          className="text-2xl sm:text-3xl tracking-[-0.02em] text-charcoal mb-12"
+          className="font-display font-medium text-h2 text-charcoal mb-12"
         >
           The 7 stages, from inquiry to launch
         </motion.h2>
@@ -253,7 +253,7 @@ function Money() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: easeOut }}
-          className="text-2xl sm:text-3xl tracking-[-0.02em] text-charcoal"
+          className="font-display font-medium text-h2 text-charcoal"
         >
           What about the money?
         </motion.h2>
@@ -338,7 +338,7 @@ function Domain() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: easeOut }}
-          className="text-2xl sm:text-3xl tracking-[-0.02em] text-charcoal"
+          className="font-display font-medium text-h2 text-charcoal"
         >
           What about the domain?
         </motion.h2>
@@ -436,7 +436,7 @@ function Troubleshoot() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: easeOut }}
-          className="text-2xl sm:text-3xl tracking-[-0.02em] text-charcoal"
+          className="font-display font-medium text-h2 text-charcoal"
         >
           What if something goes wrong?
         </motion.h2>
@@ -480,7 +480,7 @@ function ClosingCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: easeOut }}
-          className="text-3xl sm:text-4xl lg:text-5xl tracking-[-0.025em] text-charcoal leading-[1.05]"
+          className="font-display font-medium text-h1 text-charcoal"
         >
           Ready to{" "}
           <span className="font-serif italic font-normal text-accent">

@@ -36,9 +36,42 @@ const config: Config = {
           "Cambria",
           "serif",
         ],
+        // Cabinet Grotesk — display sans for hero/h1/h2.
+        display: [
+          "var(--font-display)",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "sans-serif",
+        ],
       },
       letterSpacing: {
         tightish: "-0.015em",
+      },
+      // Typography scale — apply via `text-hero-display`, `text-h1`, etc.
+      // Sizes use clamp() so headlines scale fluidly without breakpoint hops.
+      // Display sizes bundle their own letterSpacing + lineHeight so a single
+      // class is enough.
+      fontSize: {
+        "hero-display": [
+          "clamp(2.75rem, 7vw, 7rem)",
+          { lineHeight: "1.02", letterSpacing: "-0.035em" },
+        ],
+        h1: [
+          "clamp(2rem, 4vw, 3.5rem)",
+          { lineHeight: "1.05", letterSpacing: "-0.025em" },
+        ],
+        h2: [
+          "clamp(1.6rem, 3.2vw, 2.75rem)",
+          { lineHeight: "1.08", letterSpacing: "-0.022em" },
+        ],
+        "body-lg": ["1.125rem", { lineHeight: "1.65" }],
+        body: ["1rem", { lineHeight: "1.6" }],
+        caption: [
+          "0.75rem",
+          { lineHeight: "1.5", letterSpacing: "0.04em" },
+        ],
       },
       animation: {
         "sun-pulse": "sun-pulse 2.6s ease-in-out infinite",

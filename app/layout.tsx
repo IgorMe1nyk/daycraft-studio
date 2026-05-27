@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { GeistSans } from "geist/font/sans";
 import { Instrument_Serif } from "next/font/google";
+import localFont from "next/font/local";
 import CursorSun from "@/components/cursor-sun";
 import "./globals.css";
 
@@ -11,6 +12,30 @@ const instrumentSerif = Instrument_Serif({
   style: ["normal", "italic"],
   variable: "--font-serif",
   display: "swap",
+});
+
+// Cabinet Grotesk — self-hosted display sans for headlines (Fontshare).
+// Self-hosted in /public/fonts/ to avoid CDN latency + reliability risk.
+// Only Medium (500) and Bold (700) — those are the weights we use for
+// hero/h1/h2; loading more would just inflate the cold-start payload.
+const cabinetGrotesk = localFont({
+  src: [
+    {
+      path: "../public/fonts/CabinetGrotesk-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/CabinetGrotesk-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-display",
+  display: "swap",
+  // System fallbacks chosen for similar x-height and width so layout doesn't
+  // shift visibly when the real font swaps in.
+  fallback: ["ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
 });
 
 const SITE_URL = "https://daybreakstudio.studio";
@@ -119,7 +144,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${instrumentSerif.variable}`}
+      className={`${GeistSans.variable} ${instrumentSerif.variable} ${cabinetGrotesk.variable}`}
     >
       <body className="font-sans bg-cream text-charcoal antialiased relative">
         {/* Content sits above the grain overlay (z-1 in globals.css). */}

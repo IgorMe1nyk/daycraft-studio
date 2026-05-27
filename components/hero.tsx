@@ -64,12 +64,15 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Headline — hero display */}
+        {/* Headline — hero display.
+            text-hero-display bundles a clamp() size + tight tracking + line
+            height. font-display switches to Cabinet Grotesk; the inner
+            font-serif span overrides for the italic "as hard" accent. */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, delay: 0.05, ease: easeOut }}
-          className="text-[48px] leading-[1.02] sm:text-7xl lg:text-[104px] xl:text-[120px] tracking-[-0.035em] font-medium text-charcoal max-w-5xl"
+          className="text-hero-display font-display font-medium text-charcoal max-w-5xl"
         >
           Websites that work{" "}
           <span className="font-serif italic font-normal text-accent tracking-[-0.02em]">
