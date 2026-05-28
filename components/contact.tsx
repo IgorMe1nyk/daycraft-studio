@@ -104,6 +104,17 @@ export default function Contact() {
           center
         />
 
+        {/* Soft pointer for anyone hesitating before reaching out. */}
+        <p className="mt-5 text-center text-sm text-warmGray">
+          Not sure how this works?{" "}
+          <a
+            href="/how-it-works"
+            className="text-charcoal hover:text-accent transition-colors underline underline-offset-4 decoration-charcoal/25 hover:decoration-accent"
+          >
+            Here&apos;s the full step-by-step →
+          </a>
+        </p>
+
         <div className="mt-12 grid lg:grid-cols-5 gap-10 lg:gap-14 items-start">
           {/* ── Form ─────────────────────────────────────────────────────── */}
           <m.div

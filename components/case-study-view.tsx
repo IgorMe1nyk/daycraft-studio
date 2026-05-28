@@ -99,9 +99,9 @@ export function CaseStudyView({ slug }: { slug: string }) {
 
         {/* Movements */}
         <div className="mt-16 lg:mt-20 max-w-3xl mx-auto space-y-14 lg:space-y-16">
-          <Movement label="The brief" paragraphs={project.caseStudy.brief} />
-          <Movement label="The approach" paragraphs={project.caseStudy.approach} />
-          <Movement label="The build" paragraphs={project.caseStudy.build} />
+          <Movement label="The goal" paragraphs={project.caseStudy.brief} />
+          <Movement label="The idea" paragraphs={project.caseStudy.approach} />
+          <Movement label="What I built" paragraphs={project.caseStudy.build} />
 
           {/* Features grid sits between build and result */}
           <Section label="What it includes">

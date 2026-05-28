@@ -1,7 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { m } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "./ui/section-heading";
+import { buttonVariants } from "./ui/button";
+import { cn } from "@/lib/utils";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
@@ -108,6 +112,24 @@ export default function Process() {
             ))}
           </div>
         </div>
+
+        {/* Wayfinding — the 4 steps above are the short version; this points to
+            the full plain-English walkthrough at /how-it-works. */}
+        <m.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, delay: 0.1, ease: easeOut }}
+          className="mt-14 lg:mt-16 text-center"
+        >
+          <Link
+            href="/how-it-works"
+            className={cn(buttonVariants({ variant: "outline", size: "md" }), "group")}
+          >
+            See exactly how a project works, step by step
+            <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
+          </Link>
+        </m.div>
       </div>
     </section>
   );
