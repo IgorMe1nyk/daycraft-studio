@@ -61,8 +61,8 @@ export function CaseStudyView({ slug }: { slug: string }) {
           {isConcept && (
             <p className="mt-5 text-[13px] leading-relaxed text-warmGray/80 italic border-l-2 border-accent/30 pl-4">
               This is a concept project — a self-directed design exercise, not a
-              commissioned client site. Imagery and copy are placeholders chosen
-              to demonstrate the design direction.
+              commissioned client site. Imagery is licensed stock, chosen to
+              demonstrate the design direction; copy is illustrative.
             </p>
           )}
 

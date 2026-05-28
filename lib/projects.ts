@@ -114,6 +114,9 @@ export interface Project {
   };
   /** Concept mockup hero content (also used to flavor real-project frames). */
   mockup: ProjectMockup;
+  /** Three licensed stock images shown in the concept mockup's gallery strip
+   *  (concepts only — real projects render a live iframe instead). */
+  mockupImages?: { src: string; alt: string }[];
   /** Concepts: acknowledge stock/placeholder imagery honestly. */
   stockNote?: boolean;
 }
@@ -262,6 +265,11 @@ export const projects: Project[] = [
       nav: ["Menu", "Our Story", "Visit"],
       cta: "See the menu",
     },
+    mockupImages: [
+      { src: "/concepts/cafe-1.jpg", alt: "Latte art in two cups on a wood table" },
+      { src: "/concepts/cafe-2.jpg", alt: "Fresh croissants dusted with sugar" },
+      { src: "/concepts/cafe-3.jpg", alt: "A warm, plant-filled café interior" },
+    ],
   },
   {
     id: "greenline-landscaping",
@@ -330,6 +338,11 @@ export const projects: Project[] = [
       nav: ["Services", "Our Work", "Areas"],
       cta: "Get a free quote",
     },
+    mockupImages: [
+      { src: "/concepts/landscaping-1.jpg", alt: "A flowering garden path with trimmed hedges" },
+      { src: "/concepts/landscaping-2.jpg", alt: "A crisp, freshly cut green lawn" },
+      { src: "/concepts/landscaping-3.jpg", alt: "A tidy raised garden bed" },
+    ],
   },
   {
     id: "fade-and-co",
@@ -398,6 +411,11 @@ export const projects: Project[] = [
       nav: ["Services", "Barbers", "Gallery"],
       cta: "Book now",
     },
+    mockupImages: [
+      { src: "/concepts/barber-1.jpg", alt: "A modern barbershop interior with vintage chairs" },
+      { src: "/concepts/barber-2.jpg", alt: "A sharp fade being cut with a comb" },
+      { src: "/concepts/barber-3.jpg", alt: "A beard trim in progress" },
+    ],
   },
 ];
 

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { CSSProperties } from "react";
 import type { Project } from "@/lib/projects";
 import { cn } from "@/lib/utils";
@@ -167,19 +168,32 @@ function ConceptMockup({ project }: { project: Project }) {
         </span>
       </div>
 
-      {/* Bottom strip — three faint blocks hinting at more page below */}
+      {/* Bottom strip — a gallery/feature row of real licensed stock photos,
+          edge-to-edge object-cover. Falls back to faint palette blocks only if
+          a concept hasn't supplied images. */}
       <div className="flex" style={{ gap: "2.6cqw", padding: "5cqw" }}>
-        {[0, 1, 2].map((i) => (
+        {(project.mockupImages ?? [null, null, null]).map((img, i) => (
           <div
             key={i}
             style={{
+              position: "relative",
               flex: 1,
-              height: "12cqw",
+              height: "15cqw",
               borderRadius: "2cqw",
-              background: i === 1 ? p.accent2 : `${p.ink}14`,
-              opacity: i === 1 ? 0.85 : 1,
+              overflow: "hidden",
+              background: `${p.ink}14`,
             }}
-          />
+          >
+            {img && (
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                sizes="(max-width: 768px) 30vw, 220px"
+                className="object-cover"
+              />
+            )}
+          </div>
         ))}
       </div>
     </div>

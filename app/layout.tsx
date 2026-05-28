@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans";
 import { Instrument_Serif } from "next/font/google";
 import localFont from "next/font/local";
 import CursorSun from "@/components/cursor-sun";
+import { MotionProvider } from "@/components/motion-provider";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -139,8 +140,11 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${instrumentSerif.variable} ${cabinetGrotesk.variable}`}
     >
       <body className="font-sans bg-cream text-charcoal antialiased relative">
-        {/* Content sits above the grain overlay (z-1 in globals.css). */}
-        <div className="relative z-10">{children}</div>
+        {/* Content sits above the grain overlay (z-1 in globals.css).
+            MotionProvider makes all Framer Motion respect prefers-reduced-motion. */}
+        <div className="relative z-10">
+          <MotionProvider>{children}</MotionProvider>
+        </div>
 
         {/* Easter egg: soft sun glow trailing the cursor on hover devices. */}
         <CursorSun />
