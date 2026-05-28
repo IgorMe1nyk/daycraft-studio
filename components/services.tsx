@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Check, ArrowRight } from "lucide-react";
 import { SectionHeading } from "./ui/section-heading";
 import { cn } from "@/lib/utils";
@@ -181,7 +181,7 @@ export default function Services() {
           {tiers.map((t, i) => {
             const Icon = t.Icon;
             return (
-              <motion.div
+              <m.div
                 key={t.tier}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -283,7 +283,7 @@ export default function Services() {
                     See an example →
                   </a>
                 )}
-              </motion.div>
+              </m.div>
             );
           })}
         </div>

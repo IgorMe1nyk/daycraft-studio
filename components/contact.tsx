@@ -26,7 +26,7 @@
    ───────────────────────────────────────────────────────────────────── */
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import { LogoMark } from "./logo";
 import { Button } from "./ui/button";
@@ -106,7 +106,7 @@ export default function Contact() {
 
         <div className="mt-12 grid lg:grid-cols-5 gap-10 lg:gap-14 items-start">
           {/* ── Form ─────────────────────────────────────────────────────── */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -239,10 +239,10 @@ export default function Contact() {
                 </div>
               </form>
             )}
-          </motion.div>
+          </m.div>
 
           {/* ── Alternative contact methods ─────────────────────────────── */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -262,7 +262,7 @@ export default function Contact() {
             <p className="mt-6 text-xs text-warmGray/75 leading-relaxed">
               Email is the fastest way to reach me. Replies within 24 hours.
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>
@@ -314,7 +314,7 @@ function ContactMethodRow({ method }: { method: ContactMethod }) {
 
 function SuccessState({ onReset }: { onReset: () => void }) {
   return (
-    <motion.div
+    <m.div
       key="success"
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
@@ -337,6 +337,6 @@ function SuccessState({ onReset }: { onReset: () => void }) {
       >
         Send another message
       </button>
-    </motion.div>
+    </m.div>
   );
 }

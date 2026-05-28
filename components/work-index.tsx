@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { WorkCard } from "./work";
 import { projects, type ProjectKind } from "@/lib/projects";
 import { cn } from "@/lib/utils";
@@ -27,23 +27,23 @@ export function WorkIndex() {
     <section className="pt-28 pb-24 lg:pt-32 lg:pb-32">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         {/* Header */}
-        <motion.span
+        <m.span
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: easeOut }}
           className="text-[11px] tracking-[0.18em] text-accent uppercase block"
         >
           Work
-        </motion.span>
-        <motion.h1
+        </m.span>
+        <m.h1
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.05, ease: easeOut }}
           className="mt-4 font-display font-medium text-h1 text-charcoal"
         >
           Selected work
-        </motion.h1>
-        <motion.p
+        </m.h1>
+        <m.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.12, ease: easeOut }}
@@ -52,10 +52,10 @@ export function WorkIndex() {
           Real projects, concept work, and what&apos;s in progress. Concepts are
           self-directed design exercises — labeled as such, never sold as client
           work.
-        </motion.p>
+        </m.p>
 
         {/* Filter */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -83,7 +83,7 @@ export function WorkIndex() {
               </button>
             );
           })}
-        </motion.div>
+        </m.div>
 
         {/* Grid */}
         <div className="mt-12 grid md:grid-cols-2 gap-8 lg:gap-10">

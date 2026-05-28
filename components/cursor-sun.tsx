@@ -12,7 +12,7 @@
  */
 
 import { useEffect } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { m, useMotionValue, useSpring } from "framer-motion";
 
 export default function CursorSun() {
   const x = useMotionValue(-300);
@@ -37,7 +37,7 @@ export default function CursorSun() {
   }, [x, y]);
 
   return (
-    <motion.div
+    <m.div
       aria-hidden
       style={{ x: sx, y: sy }}
       className="fixed top-0 left-0 size-40 rounded-full pointer-events-none z-[30] mix-blend-multiply opacity-25 hidden md:block"
@@ -49,6 +49,6 @@ export default function CursorSun() {
             "radial-gradient(circle, rgba(107,140,174,0.55) 0%, transparent 65%)",
         }}
       />
-    </motion.div>
+    </m.div>
   );
 }

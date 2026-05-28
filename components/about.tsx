@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Zap, MessageCircle, Award, Coins } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -41,7 +41,7 @@ export default function About() {
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-start">
           {/* ─── Photo + offset color block ───────────────────────────────── */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -77,11 +77,11 @@ export default function About() {
                 />
               </div>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* ─── Copy + principles ────────────────────────────────────────── */}
           <div className="md:col-span-7">
-            <motion.span
+            <m.span
               initial={{ opacity: 0, y: 8 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -89,9 +89,9 @@ export default function About() {
               className="text-[11px] tracking-[0.18em] text-accent uppercase block"
             >
               About
-            </motion.span>
+            </m.span>
 
-            <motion.h2
+            <m.h2
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -100,9 +100,9 @@ export default function About() {
             >
               Hey, I&apos;m{" "}
               <span className="font-serif italic font-normal">Igor</span>.
-            </motion.h2>
+            </m.h2>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -126,10 +126,10 @@ export default function About() {
                 </span>
                 .
               </p>
-            </motion.div>
+            </m.div>
 
             <div className="mt-10">
-              <motion.h3
+              <m.h3
                 initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
@@ -137,12 +137,12 @@ export default function About() {
                 className="text-[11px] tracking-[0.18em] text-warmGray uppercase"
               >
                 How I work
-              </motion.h3>
+              </m.h3>
               <div className="mt-5 grid sm:grid-cols-2 gap-x-8 gap-y-5">
                 {principles.map((p, i) => {
                   const Icon = p.Icon;
                   return (
-                    <motion.div
+                    <m.div
                       key={p.title}
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -165,7 +165,7 @@ export default function About() {
                       <p className="mt-2 text-sm text-warmGray leading-relaxed">
                         {p.desc}
                       </p>
-                    </motion.div>
+                    </m.div>
                   );
                 })}
               </div>
@@ -173,7 +173,7 @@ export default function About() {
               {/* Currently building — a quiet "live" status line. The green
                   dot reuses Tailwind's built-in `animate-ping` for a gentle
                   pulse, signalling this isn't a static page. */}
-              <motion.p
+              <m.p
                 initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
@@ -189,7 +189,7 @@ export default function About() {
                 </span>
                 Currently in design: an editorial photography portfolio for a
                 NY/NJ wedding photographer.
-              </motion.p>
+              </m.p>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { SectionHeading } from "./ui/section-heading";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
@@ -65,7 +65,7 @@ export default function Process() {
 
           <div className="grid md:grid-cols-4 gap-10 md:gap-6 relative">
             {steps.map((s, i) => (
-              <motion.div
+              <m.div
                 key={s.n}
                 initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -104,7 +104,7 @@ export default function Process() {
                     className="md:hidden absolute left-[19px] top-12 bottom-[-1.5rem] w-px bg-gradient-to-b from-accent/40 to-accent/0"
                   />
                 )}
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

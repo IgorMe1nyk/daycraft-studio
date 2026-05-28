@@ -83,11 +83,29 @@ const config: Config = {
           "accordion-down 280ms cubic-bezier(0.22, 1, 0.36, 1)",
         "accordion-up":
           "accordion-up 240ms cubic-bezier(0.22, 1, 0.36, 1) forwards",
+        // CSS entrance animations for the hero (replace JS-gated Framer fades
+        // so the LCP headline paints at first paint, not after hydration).
+        // `both` fill-mode holds the from-state during animation-delay.
+        "fade-up": "fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both",
+        "grow-x": "grow-x 0.9s cubic-bezier(0.22, 1, 0.36, 1) both",
+        "scroll-bounce": "scroll-bounce 2.4s ease-in-out infinite",
       },
       keyframes: {
         "sun-pulse": {
           "0%, 100%": { opacity: "1", transform: "scale(1)" },
           "50%": { opacity: "0.85", transform: "scale(1.06)" },
+        },
+        "fade-up": {
+          from: { opacity: "0", transform: "translateY(16px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "grow-x": {
+          from: { opacity: "0", transform: "scaleX(0.6)" },
+          to: { opacity: "1", transform: "scaleX(1)" },
+        },
+        "scroll-bounce": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(4px)" },
         },
         "overlay-in": {
           from: { opacity: "0" },

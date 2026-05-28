@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
@@ -41,7 +41,7 @@ function Hero() {
         }}
       />
       <div className="relative mx-auto max-w-3xl px-6 lg:px-8">
-        <motion.a
+        <m.a
           href="/"
           initial={{ opacity: 0, x: -8 }}
           animate={{ opacity: 1, x: 0 }}
@@ -50,16 +50,16 @@ function Hero() {
         >
           <ArrowLeft className="size-3.5" strokeWidth={1.8} />
           Back to home
-        </motion.a>
-        <motion.span
+        </m.a>
+        <m.span
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05, ease: easeOut }}
           className="mt-10 block text-[11px] tracking-[0.18em] text-accent uppercase"
         >
           The full guide
-        </motion.span>
-        <motion.h1
+        </m.span>
+        <m.h1
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: easeOut }}
@@ -70,8 +70,8 @@ function Hero() {
             Daybreak Studio
           </span>{" "}
           actually works
-        </motion.h1>
-        <motion.p
+        </m.h1>
+        <m.p
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.18, ease: easeOut }}
@@ -80,7 +80,7 @@ function Hero() {
           If you&apos;ve never paid for a website before, this page walks you
           through the whole thing — what you&apos;ll do, what I&apos;ll do,
           what it costs, and what happens when something goes wrong.
-        </motion.p>
+        </m.p>
       </div>
     </section>
   );
@@ -157,7 +157,7 @@ function Stages() {
   return (
     <section className="relative py-14 lg:py-20">
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
-        <motion.h2
+        <m.h2
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -165,7 +165,7 @@ function Stages() {
           className="font-display font-medium text-h2 text-charcoal mb-12"
         >
           The 7 stages, from inquiry to launch
-        </motion.h2>
+        </m.h2>
 
         <ol className="relative space-y-12 lg:space-y-14">
           {/* Vertical timeline line */}
@@ -175,7 +175,7 @@ function Stages() {
           />
 
           {stages.map((s, i) => (
-            <motion.li
+            <m.li
               key={s.n}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -219,7 +219,7 @@ function Stages() {
                   </p>
                 </div>
               </div>
-            </motion.li>
+            </m.li>
           ))}
         </ol>
       </div>
@@ -248,7 +248,7 @@ function Money() {
   return (
     <section className="relative bg-paleBlue/50 py-20 lg:py-28 border-y border-charcoal/[0.04]">
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
-        <motion.h2
+        <m.h2
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -256,11 +256,11 @@ function Money() {
           className="font-display font-medium text-h2 text-charcoal"
         >
           What about the money?
-        </motion.h2>
+        </m.h2>
 
         <div className="mt-10 grid md:grid-cols-3 gap-5 lg:gap-6">
           {moneyCards.map((card, i) => (
-            <motion.div
+            <m.div
               key={card.title}
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -278,7 +278,7 @@ function Money() {
               <p className="mt-3 text-[15px] text-charcoal/85 leading-relaxed">
                 {card.body}
               </p>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>
@@ -333,7 +333,7 @@ function Domain() {
   return (
     <section className="relative py-20 lg:py-28">
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
-        <motion.h2
+        <m.h2
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -341,9 +341,9 @@ function Domain() {
           className="font-display font-medium text-h2 text-charcoal"
         >
           What about the domain?
-        </motion.h2>
+        </m.h2>
 
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -356,9 +356,9 @@ function Domain() {
           </span>
           ). You need to buy one yourself in your own name, so you always own
           it. Here&apos;s how:
-        </motion.p>
+        </m.p>
 
-        <motion.ol
+        <m.ol
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -373,9 +373,9 @@ function Domain() {
               <span className="flex-1 leading-relaxed pt-0.5">{step}</span>
             </li>
           ))}
-        </motion.ol>
+        </m.ol>
 
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -384,9 +384,9 @@ function Domain() {
         >
           If you&apos;ve never bought a domain before, I&apos;ll do this part
           with you over a screen share — takes about 5 minutes.
-        </motion.p>
+        </m.p>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -400,7 +400,7 @@ function Domain() {
             Pick something simple, short, and easy to spell. Your business
             name + .com is almost always the best choice.
           </p>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );
@@ -431,7 +431,7 @@ function Troubleshoot() {
   return (
     <section className="relative bg-paleBlue/50 py-20 lg:py-28 border-y border-charcoal/[0.04]">
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
-        <motion.h2
+        <m.h2
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -439,11 +439,11 @@ function Troubleshoot() {
           className="font-display font-medium text-h2 text-charcoal"
         >
           What if something goes wrong?
-        </motion.h2>
+        </m.h2>
 
         <div className="mt-10 space-y-7">
           {troubleshootItems.map((item, i) => (
-            <motion.div
+            <m.div
               key={item.q}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -461,7 +461,7 @@ function Troubleshoot() {
               <p className="mt-2 text-[15px] text-warmGray leading-relaxed">
                 {item.a}
               </p>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>
@@ -475,7 +475,7 @@ function ClosingCTA() {
   return (
     <section className="relative py-24 lg:py-32 text-center">
       <div className="mx-auto max-w-2xl px-6 lg:px-8">
-        <motion.h2
+        <m.h2
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -487,8 +487,8 @@ function ClosingCTA() {
             start
           </span>
           ?
-        </motion.h2>
-        <motion.div
+        </m.h2>
+        <m.div
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -509,8 +509,8 @@ function ClosingCTA() {
             Email me directly
             <ArrowUpRight className="size-4" strokeWidth={2} />
           </a>
-        </motion.div>
-        <motion.p
+        </m.div>
+        <m.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -518,7 +518,7 @@ function ClosingCTA() {
           className="mt-6 text-sm text-warmGray/85"
         >
           Most projects start within a week of first contact.
-        </motion.p>
+        </m.p>
       </div>
     </section>
   );

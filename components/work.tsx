@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "./ui/section-heading";
 import { ProjectPreview } from "./project-preview";
@@ -32,7 +32,7 @@ export default function Work() {
           ))}
         </div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -46,7 +46,7 @@ export default function Work() {
             View all work
             <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
           </Link>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );
@@ -65,7 +65,7 @@ export function WorkCard({
   const label = isConcept ? project.vertical : project.tag;
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
@@ -106,6 +106,6 @@ export function WorkCard({
           </span>
         </div>
       </Link>
-    </motion.div>
+    </m.div>
   );
 }

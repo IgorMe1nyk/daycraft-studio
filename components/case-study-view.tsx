@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { ProjectPreview } from "./project-preview";
 import { buttonVariants } from "./ui/button";
@@ -85,7 +85,7 @@ export function CaseStudyView({ slug }: { slug: string }) {
         </div>
 
         {/* Hero preview */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: easeOut }}
@@ -95,7 +95,7 @@ export function CaseStudyView({ slug }: { slug: string }) {
           <p className="mt-3 text-center text-xs text-warmGray/70">
             Palette: {project.palette.name}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Movements */}
         <div className="mt-16 lg:mt-20 max-w-3xl mx-auto space-y-14 lg:space-y-16">
@@ -141,7 +141,7 @@ export function CaseStudyView({ slug }: { slug: string }) {
         </div>
 
         {/* CTA */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -171,7 +171,7 @@ export function CaseStudyView({ slug }: { slug: string }) {
               See more work
             </Link>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </article>
   );
@@ -186,7 +186,7 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <motion.section
+    <m.section
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
@@ -196,7 +196,7 @@ function Section({
         {label}
       </h2>
       <div className="mt-4">{children}</div>
-    </motion.section>
+    </m.section>
   );
 }
 

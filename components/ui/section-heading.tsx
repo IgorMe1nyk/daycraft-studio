@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -23,7 +23,7 @@ export function SectionHeading({
   return (
     <div className={cn("max-w-2xl", center && "text-center mx-auto", className)}>
       {eyebrow && (
-        <motion.span
+        <m.span
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -31,9 +31,9 @@ export function SectionHeading({
           className="text-[11px] tracking-[0.18em] text-accent uppercase block"
         >
           {eyebrow}
-        </motion.span>
+        </m.span>
       )}
-      <motion.h2
+      <m.h2
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -41,9 +41,9 @@ export function SectionHeading({
         className="mt-4 font-display font-medium text-h2 text-charcoal"
       >
         {title}
-      </motion.h2>
+      </m.h2>
       {description && (
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -51,7 +51,7 @@ export function SectionHeading({
           className="mt-4 text-warmGray text-[16px] leading-relaxed"
         >
           {description}
-        </motion.p>
+        </m.p>
       )}
     </div>
   );

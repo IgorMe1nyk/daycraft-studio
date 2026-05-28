@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./logo";
 import { cn } from "@/lib/utils";
@@ -94,7 +94,7 @@ export default function Nav() {
       <AnimatePresence>
         {open && (
           <>
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -103,7 +103,7 @@ export default function Nav() {
               onClick={() => setOpen(false)}
               aria-hidden
             />
-            <motion.div
+            <m.div
               key="mobile-panel"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -131,7 +131,7 @@ export default function Nav() {
               </div>
               <nav aria-label="Mobile" className="flex flex-col">
                 {links.map((l, i) => (
-                  <motion.a
+                  <m.a
                     key={l.href}
                     href={l.href}
                     onClick={() => setOpen(false)}
@@ -145,7 +145,7 @@ export default function Nav() {
                     className="py-3 text-2xl tracking-tight text-charcoal hover:text-accent transition-colors border-b border-charcoal/[0.06]"
                   >
                     {l.label}
-                  </motion.a>
+                  </m.a>
                 ))}
               </nav>
               <div className="mt-auto pt-8 text-xs text-warmGray">
@@ -153,7 +153,7 @@ export default function Nav() {
                 <br />
                 Available for new projects
               </div>
-            </motion.div>
+            </m.div>
           </>
         )}
       </AnimatePresence>

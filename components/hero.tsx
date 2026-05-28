@@ -1,17 +1,22 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
 
-const easeOut = [0.22, 1, 0.36, 1] as const;
-
 /**
+ * Hero — a SERVER component.
+ *
+ * Performance note (Round 4): this used to be a client component whose
+ * headline (the LCP element) started at opacity:0 and only became visible
+ * after Framer Motion hydrated — which pushed LCP to ~6.5s on a busy main
+ * thread. Now the entrance animations are pure CSS (see the `animate-fade-up`
+ * / `animate-grow-x` utilities in tailwind.config.ts), so the headline is
+ * server-rendered and paints at first paint. The look is identical; the
+ * `prefers-reduced-motion` block in globals.css collapses these to instant.
+ *
  * Headline alternatives — swap whichever feels strongest:
- *   1. "Websites that work as hard as you do."    (current — confident, personal)
- *   2. "The website your business deserves."      (warmer, more empathetic)
- *   3. "Clean websites. Fairly priced. Delivered fast."  (more direct/promise-led)
+ *   1. "Websites that work as hard as you do."    (current)
+ *   2. "The website your business deserves."
+ *   3. "Clean websites. Fairly priced. Delivered fast."
  */
 export default function Hero() {
   return (
@@ -19,9 +24,7 @@ export default function Hero() {
       id="top"
       className="relative pt-32 pb-24 lg:pt-44 lg:pb-32 overflow-hidden"
     >
-      {/* ── Watercolor wash backdrop ───────────────────────────────────────────
-          Three soft, blurred orbs layered to suggest a sunrise without ever
-          being literal. Everything is decorative + aria-hidden. */}
+      {/* ── Watercolor wash backdrop — decorative, aria-hidden ───────────── */}
       <div
         aria-hidden
         className="pointer-events-none absolute -top-40 -right-32 w-[820px] h-[820px] rounded-full opacity-80 blur-3xl"
@@ -49,11 +52,9 @@ export default function Hero() {
 
       <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
         {/* Pill badge with animated sun */}
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease: easeOut }}
-          className="inline-flex items-center gap-2.5 rounded-full bg-paleBlue/60 backdrop-blur-sm border border-accent/15 px-3.5 py-1.5 mb-8"
+        <div
+          className="inline-flex items-center gap-2.5 rounded-full bg-paleBlue/60 backdrop-blur-sm border border-accent/15 px-3.5 py-1.5 mb-8 animate-fade-up"
+          style={{ animationDelay: "0ms" }}
         >
           <span className="relative inline-flex">
             <span className="absolute inset-0 rounded-full bg-accent/40 blur-[3px] animate-sun-pulse" />
@@ -62,55 +63,45 @@ export default function Hero() {
           <span className="text-xs text-charcoal/80 font-medium tracking-tight">
             Booking June–July 2026 · 2 spots open
           </span>
-        </motion.div>
+        </div>
 
-        {/* Headline — hero display.
-            text-hero-display bundles a clamp() size + tight tracking + line
-            height. font-display switches to Cabinet Grotesk; the inner
-            font-serif span overrides for the italic "as hard" accent. */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, delay: 0.05, ease: easeOut }}
-          className="text-hero-display font-display font-medium text-charcoal max-w-5xl"
+        {/* Headline — the LCP element. Server-rendered, painted immediately;
+            CSS fade-up enhances it. */}
+        <h1
+          className="text-hero-display font-display font-medium text-charcoal max-w-5xl animate-fade-up"
+          style={{ animationDelay: "60ms" }}
         >
           Websites that work{" "}
           <span className="font-serif italic font-normal text-accent tracking-[-0.02em]">
             as hard
           </span>{" "}
           as you do.
-        </motion.h1>
+        </h1>
 
-        {/* Horizon line decoration — echoes the logo: small line · sun · longer line */}
-        <motion.div
+        {/* Horizon line decoration */}
+        <div
           aria-hidden
-          initial={{ opacity: 0, scaleX: 0.6 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.9, delay: 0.35, ease: easeOut }}
-          className="origin-left mt-10 flex items-center gap-2.5"
+          className="origin-left mt-10 flex items-center gap-2.5 animate-grow-x"
+          style={{ animationDelay: "320ms" }}
         >
           <span className="block h-px w-10 bg-charcoal/20" />
           <span className="block size-1.5 rounded-full bg-accent" />
           <span className="block h-px w-32 bg-charcoal/20" />
-        </motion.div>
+        </div>
 
         {/* Subhead */}
-        <motion.p
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.22, ease: easeOut }}
-          className="mt-8 text-lg sm:text-xl text-warmGray max-w-2xl leading-relaxed"
+        <p
+          className="mt-8 text-lg sm:text-xl text-warmGray max-w-2xl leading-relaxed animate-fade-up"
+          style={{ animationDelay: "200ms" }}
         >
           Daybreak Studio builds clean, fast websites for small businesses in
           North Jersey. Delivered in days, not months.
-        </motion.p>
+        </p>
 
         {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.32, ease: easeOut }}
-          className="mt-10 flex flex-wrap items-center gap-3"
+        <div
+          className="mt-10 flex flex-wrap items-center gap-3 animate-fade-up"
+          style={{ animationDelay: "300ms" }}
         >
           <a
             href="#contact"
@@ -124,35 +115,27 @@ export default function Hero() {
           >
             View services
           </a>
-        </motion.div>
+        </div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="mt-7 text-sm text-warmGray/85"
+        <p
+          className="mt-7 text-sm text-warmGray/85 animate-fade-up"
+          style={{ animationDelay: "460ms" }}
         >
           Based in North Jersey · Replies within 24 hours
-        </motion.p>
+        </p>
 
-        {/* Scroll indicator — only above 'md' since on mobile it's redundant */}
-        <motion.a
+        {/* Scroll indicator — desktop only */}
+        <a
           href="#services"
           aria-label="Scroll to services"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="hidden md:flex absolute bottom-6 lg:bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-warmGray/70 hover:text-accent transition-colors"
+          className="hidden md:flex absolute bottom-6 lg:bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-warmGray/70 hover:text-accent transition-colors animate-fade-up"
+          style={{ animationDelay: "800ms" }}
         >
           <span className="text-[10px] tracking-[0.22em] uppercase">scroll</span>
-          <motion.span
-            animate={{ y: [0, 4, 0] }}
-            transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-            className="block"
-          >
+          <span className="block animate-scroll-bounce">
             <ChevronDown className="size-4" strokeWidth={1.6} />
-          </motion.span>
-        </motion.a>
+          </span>
+        </a>
       </div>
     </section>
   );
