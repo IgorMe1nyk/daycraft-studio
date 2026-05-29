@@ -14,6 +14,7 @@ const filters: { value: Filter; label: string }[] = [
   { value: "all", label: "All" },
   { value: "real", label: "Real" },
   { value: "concept", label: "Concept" },
+  { value: "pitch", label: "Pitch" },
 ];
 
 export function WorkIndex() {
@@ -49,9 +50,8 @@ export function WorkIndex() {
           transition={{ duration: 0.6, delay: 0.12, ease: easeOut }}
           className="mt-4 max-w-2xl text-warmGray text-body-lg leading-relaxed"
         >
-          Real projects, concept work, and what&apos;s in progress. Concepts are
-          self-directed design exercises — labeled as such, never sold as client
-          work.
+          Real projects, pitches, and concept work. Concepts are self-directed
+          design exercises — labeled as such, never sold as client work.
         </m.p>
 
         {/* Filter */}

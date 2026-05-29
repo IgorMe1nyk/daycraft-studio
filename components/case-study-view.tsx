@@ -26,6 +26,7 @@ export function CaseStudyView({ slug }: { slug: string }) {
   if (!project) return null;
 
   const isConcept = project.kind === "concept";
+  const isPitch = project.kind === "pitch";
 
   return (
     <article className="pt-28 pb-24 lg:pt-32 lg:pb-32">
@@ -42,9 +43,9 @@ export function CaseStudyView({ slug }: { slug: string }) {
         {/* Header */}
         <div className="mt-8 max-w-3xl">
           <div className="flex items-center gap-2.5">
-            {isConcept && (
+            {(isConcept || isPitch) && (
               <span className="text-[9px] tracking-[0.18em] uppercase text-warmGray/80 bg-paleBlue/60 border border-charcoal/[0.07] rounded-full px-2 py-0.5">
-                Concept
+                {isPitch ? "Pitch" : "Concept"}
               </span>
             )}
             <span className="text-[11px] tracking-[0.18em] text-accent uppercase">
@@ -67,19 +68,21 @@ export function CaseStudyView({ slug }: { slug: string }) {
           )}
 
           <div className="mt-7 flex flex-wrap items-center gap-3">
-            {project.kind === "real" && project.liveUrl ? (
+            {project.liveUrl && (project.kind === "real" || isPitch) ? (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(buttonVariants({ variant: "primary", size: "md" }))}
               >
-                Visit live site
+                {isPitch ? "View live pitch site" : "Visit live site"}
                 <ArrowUpRight className="size-4" strokeWidth={2} />
               </a>
             ) : null}
             <span className="text-xs text-warmGray/85">
-              {project.tier} Tier · {project.price} · {project.buildTime}
+              {isPitch
+                ? `${project.price} · ${project.buildTime}`
+                : `${project.tier} Tier · ${project.price} · ${project.buildTime}`}
             </span>
           </div>
         </div>
@@ -91,10 +94,16 @@ export function CaseStudyView({ slug }: { slug: string }) {
           transition={{ duration: 0.8, delay: 0.1, ease: easeOut }}
           className="mt-12 lg:mt-14"
         >
-          <ProjectPreview project={project} />
-          <p className="mt-3 text-center text-xs text-warmGray/70">
-            Palette: {project.palette.name}
-          </p>
+          <ProjectPreview project={project} priority={isPitch} />
+          {isPitch ? (
+            <p className="mt-3 text-center text-xs text-warmGray/70">
+              Live preview · leor.daycraftstudio.com
+            </p>
+          ) : (
+            <p className="mt-3 text-center text-xs text-warmGray/70">
+              Palette: {project.palette.name}
+            </p>
+          )}
         </m.div>
 
         {/* Movements */}
@@ -149,12 +158,14 @@ export function CaseStudyView({ slug }: { slug: string }) {
           className="mt-20 max-w-3xl mx-auto rounded-2xl border border-charcoal/10 bg-paleBlue/30 p-8 sm:p-10 text-center"
         >
           <h2 className="font-display font-medium text-h2 text-charcoal">
-            Want one like this?
+            {isPitch ? "Need a site like this for your business?" : "Want one like this?"}
           </h2>
           <p className="mt-3 text-warmGray text-[15px] leading-relaxed">
-            {isConcept
-              ? "This is concept work — but it's exactly the kind of site I build for real businesses. Tell me about yours."
-              : "Tell me about your project and I'll get back to you within 24 hours."}
+            {isPitch
+              ? "If you're a photographer, creative, or small business that takes craft seriously — let's talk."
+              : isConcept
+                ? "This is concept work — but it's exactly the kind of site I build for real businesses. Tell me about yours."
+                : "Tell me about your project and I'll get back to you within 24 hours."}
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
             <Link

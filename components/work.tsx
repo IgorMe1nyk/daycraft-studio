@@ -23,7 +23,7 @@ export default function Work() {
         <SectionHeading
           eyebrow="Work"
           title="Selected work"
-          description="Real projects, concept work, and what's in progress."
+          description="Real projects, pitches, and concept work."
         />
 
         <div className="mt-14 lg:mt-16 grid md:grid-cols-2 gap-8 lg:gap-10">
@@ -60,9 +60,10 @@ export function WorkCard({
   index: number;
 }) {
   const isConcept = project.kind === "concept";
-  // Concepts get a "Concept" pill + the bare vertical; real projects show the
-  // full descriptive tag.
-  const label = isConcept ? project.vertical : project.tag;
+  const isPitch = project.kind === "pitch";
+  // Concepts and pitches get a labeled pill ("Concept" / "Pitch") + the bare
+  // vertical; real projects show the full descriptive tag.
+  const label = isConcept || isPitch ? project.vertical : project.tag;
 
   return (
     <m.div
@@ -87,9 +88,9 @@ export function WorkCard({
         <div className="mt-5 flex items-end justify-between gap-4">
           <div className="min-w-0">
             <div className="flex items-center gap-2">
-              {isConcept && (
+              {(isConcept || isPitch) && (
                 <span className="text-[9px] tracking-[0.18em] uppercase text-warmGray/80 bg-paleBlue/60 border border-charcoal/[0.07] rounded-full px-2 py-0.5">
-                  Concept
+                  {isPitch ? "Pitch" : "Concept"}
                 </span>
               )}
               <span className="text-[11px] tracking-[0.18em] text-accent uppercase truncate">

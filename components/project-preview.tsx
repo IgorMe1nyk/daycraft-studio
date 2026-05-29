@@ -6,7 +6,8 @@ import { cn } from "@/lib/utils";
 /**
  * ProjectPreview — the Mac-style browser frame used on Work cards and at the
  * top of case-study pages. It renders:
- *   • real projects   → a scaled live <iframe> of the actual site
+ *   • real projects    → a scaled live <iframe> of the actual site
+ *   • pitch projects   → a captured screenshot of the live site
  *   • concept projects → a palette-driven mockup hero (no live site)
  *
  * Pure visual — no link wrapper, no pointer handling. The parent decides
@@ -19,9 +20,12 @@ import { cn } from "@/lib/utils";
 export function ProjectPreview({
   project,
   className,
+  priority = false,
 }: {
   project: Project;
   className?: string;
+  /** Mark the screenshot as LCP-priority (case-study hero only). */
+  priority?: boolean;
 }) {
   return (
     <div
@@ -48,7 +52,16 @@ export function ProjectPreview({
 
       {/* Viewport */}
       <div className="relative aspect-[16/10] bg-paleBlue/20 overflow-hidden">
-        {project.kind === "real" && project.liveUrl ? (
+        {project.screenshot ? (
+          <Image
+            src={project.screenshot.src}
+            alt={project.screenshot.alt}
+            fill
+            priority={priority}
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            className="object-cover object-top"
+          />
+        ) : project.kind === "real" && project.liveUrl ? (
           <iframe
             src={project.liveUrl}
             title={`${project.name} live preview`}

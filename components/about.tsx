@@ -187,8 +187,8 @@ export default function About() {
                   <span className="absolute inset-0 rounded-full bg-emerald-500/50 animate-ping" />
                   <span className="relative inline-block size-2 rounded-full bg-emerald-500" />
                 </span>
-                Currently in design: an editorial photography portfolio for a
-                NY/NJ wedding photographer.
+                In negotiation: an editorial site for a NY/NJ wedding
+                photographer — see the Leor Meltser pitch in my work.
               </m.p>
             </div>
           </div>

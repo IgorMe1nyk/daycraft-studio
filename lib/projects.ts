@@ -1,11 +1,13 @@
 import {
   CalendarClock,
+  Camera,
   Clock,
   Coffee,
   Croissant,
   FileSignature,
   Gift,
   Hammer,
+  Heart,
   HelpCircle,
   Image as ImageIcon,
   Images,
@@ -13,6 +15,7 @@ import {
   Leaf,
   ListChecks,
   MapPin,
+  Quote,
   Scissors,
   Search,
   ShieldCheck,
@@ -20,6 +23,7 @@ import {
   Smartphone,
   Star,
   Timer,
+  Type,
   UtensilsCrossed,
   Users,
   type LucideIcon,
@@ -35,6 +39,11 @@ import {
    • kind: "concept" → a self-directed design exercise. Labeled "Concept"
                         everywhere. The card preview renders a palette-driven
                         mockup (no live site, no fake "visit live" link).
+   • kind: "pitch"   → a pitch presentation designed for a real, named
+                        prospect who has NOT signed. Labeled "Pitch"
+                        everywhere and framed honestly as in-negotiation —
+                        never as a closed/delivered client project. Has a live
+                        URL, so the card preview loads a live iframe.
 
    ── HOW TO ADD A NEW PROJECT ───────────────────────────────────────────────
    1. Copy any object below and change every field.
@@ -47,7 +56,7 @@ import {
    ─────────────────────────────────────────────────────────────────────── */
 
 export type Tier = "Starter" | "Standard" | "Custom";
-export type ProjectKind = "real" | "concept";
+export type ProjectKind = "real" | "concept" | "pitch";
 
 export interface ProjectFeature {
   label: string;
@@ -95,6 +104,9 @@ export interface Project {
   buildTime: string;
   /** Real projects only — the iframe source + "Visit live site" target. */
   liveUrl?: string;
+  /** Pitch projects — a captured screenshot of the live site, rendered inside
+   *  the browser frame instead of a live iframe (more reliable + better LCP). */
+  screenshot?: { src: string; alt: string };
   /** Pretty URL shown in the fake browser frame's address bar. */
   displayUrl: string;
   /** Show in the homepage featured grid (all current projects do). */
@@ -122,6 +134,84 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  // ─── PITCH ───────────────────────────────────────────────────────────────
+  // A pitch presentation designed for a real, named prospect (Leor Meltser)
+  // who has NOT signed a contract. Framed honestly as in-negotiation work —
+  // the focus is the craft, not a claimed client relationship.
+  {
+    id: "leor-meltser",
+    kind: "pitch",
+    name: "Leor Meltser",
+    vertical: "Photography",
+    tag: "Pitch · NY/NJ Wedding Photographer",
+    shortDesc:
+      "A pitch presentation designed for a NY/NJ wedding photographer — an editorial site that lets the photography lead.",
+    longDesc:
+      "A pitch presentation designed for NY/NJ wedding photographer Leor Meltser — an editorial site focused on storytelling, elegance, and letting the photography lead.",
+    liveUrl: "https://leor.daycraftstudio.com",
+    displayUrl: "leor.daycraftstudio.com",
+    screenshot: {
+      src: "/work/leor-meltser/leor-hero.jpg",
+      alt: "Leor Meltser pitch site — editorial wedding photography homepage hero",
+    },
+    tier: "Custom",
+    price: "Pitch presentation",
+    buildTime: "In negotiation",
+    featured: true,
+    palette: {
+      name: "Ivory, ink & graphite",
+      bg: "#F7F4EF",
+      ink: "#1A1A1A",
+      muted: "#6B6B6B",
+      accent: "#8A7A66",
+      accent2: "#C9BBA8",
+    },
+    cardFeatures: [
+      { label: "Editorial Galleries", Icon: Images },
+      { label: "Lightbox Viewer", Icon: ImageIcon },
+      { label: "Cinematic Hero", Icon: Camera },
+      { label: "Weddings Portfolio", Icon: Heart },
+      { label: "Inquiry Flow", Icon: FileSignature },
+    ],
+    features: [
+      { label: "Full-bleed editorial galleries", Icon: Images },
+      { label: "Lightbox photo viewer", Icon: ImageIcon },
+      { label: "Cinematic full-bleed hero", Icon: Camera },
+      { label: "Dedicated weddings portfolio", Icon: Heart },
+      { label: "Editorial typography system", Icon: Type },
+      { label: "Inquiry form", Icon: FileSignature },
+      { label: "Testimonials", Icon: Quote },
+      { label: "Mobile-first layout", Icon: Smartphone },
+      { label: "SEO & metadata", Icon: Search },
+    ],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "next/image"],
+    caseStudy: {
+      brief: [
+        "Design a site that treats wedding photography as editorial art — not a product catalog. The work had to communicate craft, taste, and intimacy without overdesigning or crowding the frame.",
+        "This was prepared as a pitch for Leor Meltser, a NY/NJ wedding photographer with nearly two decades behind the camera. The goal of the pitch was to show, not tell — to let a few minutes on the page do what a sales deck can't.",
+      ],
+      approach: [
+        "Quiet typography and generous whitespace, so the photos breathe. Cormorant Garamond carries the headlines with an editorial calm; a clean sans keeps the supporting text out of the way.",
+        "Navigation that gets out of the way — the page is built around the images, not around a menu. Booking and contact are made effortless without a single line of sales pressure.",
+        "The palette is deliberately restrained — ivory, ink, and graphite — so nothing competes with the photography for attention.",
+      ],
+      build: [
+        "A full-bleed cinematic hero opens the page, followed by a recent-work strip, a curated selected-work preview, and a dedicated weddings portfolio with a keyboard-accessible lightbox. An editorial details carousel, a quiet investment section, testimonials, and a low-friction inquiry form close it out.",
+        "Every photograph runs through next/image for responsive sizing and lazy loading; Framer Motion adds restrained scroll-triggered fade-ups and gentle parallax. Built mobile-first, since most couples will first meet the work on a phone.",
+      ],
+      result: [
+        "A pitch presentation, currently in negotiation. Published live at leor.daycraftstudio.com so the work can speak for itself — not a delivered client project, but a real piece of craft built for a real photographer.",
+      ],
+    },
+    mockup: {
+      eyebrow: "EDITORIAL WEDDING PHOTOGRAPHY · NY/NJ",
+      headline: "Let the photography lead.",
+      sub: "Storytelling, elegance, and a frame that knows when to step back.",
+      nav: ["Work", "Weddings", "About", "Inquire"],
+      cta: "Inquire",
+    },
+  },
+
   // ─── REAL ────────────────────────────────────────────────────────────────
   {
     id: "emily-and-james",
@@ -428,3 +518,4 @@ export function getProject(id: string): Project | undefined {
 export const featuredProjects = projects.filter((p) => p.featured);
 export const realProjects = projects.filter((p) => p.kind === "real");
 export const conceptProjects = projects.filter((p) => p.kind === "concept");
+export const pitchProjects = projects.filter((p) => p.kind === "pitch");

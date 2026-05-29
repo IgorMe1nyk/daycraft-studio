@@ -18,7 +18,12 @@ export function generateMetadata({ params }: Params): Metadata {
   const project = getProject(params.slug);
   if (!project) return { title: "Work · Daycraft Studio" };
 
-  const kindLabel = project.kind === "concept" ? "Concept" : "Case study";
+  const kindLabel =
+    project.kind === "concept"
+      ? "Concept"
+      : project.kind === "pitch"
+        ? "Pitch"
+        : "Case study";
   const title = `${project.name} · ${kindLabel} · Daycraft Studio`;
   const description = project.shortDesc;
 
@@ -30,6 +35,9 @@ export function generateMetadata({ params }: Params): Metadata {
       description,
       url: `https://daycraftstudio.com/work/${project.id}`,
       type: "article",
+      // Per-project social image when one exists (e.g. a pitch screenshot);
+      // otherwise the root opengraph-image.tsx provides the default.
+      ...(project.screenshot ? { images: [project.screenshot.src] } : {}),
     },
   };
 }
