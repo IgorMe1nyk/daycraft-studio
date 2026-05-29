@@ -24,7 +24,7 @@ export default function CaseStudyError({
   return (
     <div className="min-h-screen flex flex-col bg-cream">
       <header className="mx-auto w-full max-w-6xl px-6 lg:px-8 h-16 flex items-center">
-        <Link href="/" aria-label="Daybreak Studio — home" className="-m-2 p-2">
+        <Link href="/" aria-label="Daycraft Studio — home" className="-m-2 p-2">
           <Logo />
         </Link>
       </header>

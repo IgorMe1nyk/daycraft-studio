@@ -6,7 +6,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 export const alt =
-  "Daybreak Studio — Websites for small businesses in North Jersey";
+  "Daycraft Studio — Websites for small businesses in North Jersey";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -52,7 +52,7 @@ export default function OpengraphImage() {
             />
           </div>
           <div style={{ fontSize: "32px", fontWeight: 600, color: "#1A1A1A" }}>
-            Daybreak Studio
+            Daycraft Studio
           </div>
         </div>
 
@@ -78,7 +78,7 @@ export default function OpengraphImage() {
         {/* Footer line */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <div style={{ fontSize: "26px", color: "#6B8CAE" }}>
-            daybreakstudio.studio
+            daycraftstudio.com
           </div>
           <div style={{ fontSize: "22px", color: "#999999" }}>
             Booking June–July 2026

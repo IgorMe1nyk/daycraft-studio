@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Logo } from "@/components/logo";
 
 export const metadata: Metadata = {
-  title: "Page not found · Daybreak Studio",
+  title: "Page not found · Daycraft Studio",
 };
 
 export default function NotFound() {
@@ -12,7 +12,7 @@ export default function NotFound() {
       <header className="mx-auto w-full max-w-6xl px-6 lg:px-8 h-16 flex items-center">
         <Link
           href="/"
-          aria-label="Daybreak Studio — home"
+          aria-label="Daycraft Studio — home"
           className="-m-2 p-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
         >
           <Logo />

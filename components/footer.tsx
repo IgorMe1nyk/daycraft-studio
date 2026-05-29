@@ -8,7 +8,7 @@ export default function Footer() {
         <div>
           <Logo />
           <p className="mt-4 text-sm text-warmGray max-w-sm leading-relaxed">
-            © 2026 Daybreak Studio.
+            © 2026 Daycraft Studio.
             <br />
             Built with care in North Jersey
             <span className="text-warmGray/60"> · </span>
@@ -56,10 +56,10 @@ export default function Footer() {
             How it works
           </a>
           <a
-            href="mailto:hello@daybreakstudio.studio"
+            href="mailto:hello@daycraftstudio.com"
             className="text-warmGray hover:text-accent transition-colors"
           >
-            hello@daybreakstudio.studio
+            hello@daycraftstudio.com
           </a>
           <a
             href="tel:+12017710092"
@@ -68,16 +68,16 @@ export default function Footer() {
             <Phone className="size-3.5" aria-hidden />
             (201) 771-0092
           </a>
-          {/* Instagram handle: daybreak.studio.nj — update here if the
+          {/* Instagram handle: daycraft.studio — update here if the
               username changes (also update lib/contact-methods.ts). */}
           <a
-            href="https://instagram.com/daybreak.studio.nj"
+            href="https://instagram.com/daycraft.studio"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-warmGray hover:text-accent transition-colors"
           >
             <Instagram className="size-3.5" aria-hidden />
-            @daybreak.studio.nj
+            @daycraft.studio
           </a>
         </div>
       </div>

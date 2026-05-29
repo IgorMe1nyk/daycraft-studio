@@ -40,7 +40,7 @@ import {
    1. Copy any object below and change every field.
    2. `id` becomes the case-study URL: /work/<id>.
    3. `palette` drives the concept mockup hero (its own colors — that's the
-      point: concepts show range, not Daybreak's brand palette).
+      point: concepts show range, not Daycraft's brand palette).
    4. Fill `caseStudy` (brief / approach / build / result). For concepts,
       frame the result honestly as a concept outcome.
    5. The Work section + /work index pick everything up automatically.
@@ -134,7 +134,7 @@ export const projects: Project[] = [
     longDesc:
       "A custom wedding website built for a couple celebrating in the Hudson Valley — soft typography, hand-drawn botanical details, and a thoughtful multi-step RSVP flow that captures meal preferences, dietary needs, and song requests. Everything a guest needs lives on one elegant page.",
     liveUrl: "https://emily-and-james-wedding.vercel.app",
-    displayUrl: "emily-and-james.daybreakstudio.studio",
+    displayUrl: "emily-and-james.daycraftstudio.com",
     tier: "Starter",
     price: "$350",
     buildTime: "Built in 1 day",
@@ -245,7 +245,7 @@ export const projects: Project[] = [
         "The goal wasn't a digital ordering platform. It was a place a first-time visitor could land on, feel the vibe in two seconds, find the hours and the address, and decide to walk in.",
       ],
       approach: [
-        "The palette leans into the product itself — terracotta and espresso against a soft cream, the colors of a morning counter. It is deliberately nothing like Daybreak's own blue-and-cream brand; a café should look like a café.",
+        "The palette leans into the product itself — terracotta and espresso against a soft cream, the colors of a morning counter. It is deliberately nothing like Daycraft's own blue-and-cream brand; a café should look like a café.",
         "Typography pairs a confident display serif for the name with a clean sans for the menu, so prices stay scannable while the brand still feels handmade.",
         "Structure follows how someone actually decides where to get coffee: hero and feeling first, a few signature items, the story, then the practical stuff — hours, map, and a reason to follow on Instagram.",
       ],
@@ -255,7 +255,7 @@ export const projects: Project[] = [
       ],
       result: [
         "A concept that shows how a Standard-tier ($650) café site can feel premium and personal without a single line of stock copy.",
-        "It maps directly onto Daybreak's food-and-lifestyle vertical and doubles as an outreach piece for local cafés and bakeries.",
+        "It maps directly onto Daycraft's food-and-lifestyle vertical and doubles as an outreach piece for local cafés and bakeries.",
       ],
     },
     mockup: {
@@ -328,7 +328,7 @@ export const projects: Project[] = [
       ],
       result: [
         "A concept that shows how a Standard-tier ($650) build turns a trade business's site into a lead engine rather than a digital business card.",
-        "Strategically Daybreak's most important concept: trades are the realistic volume market, and a polished example here is a direct sales tool.",
+        "Strategically Daycraft's most important concept: trades are the realistic volume market, and a polished example here is a direct sales tool.",
       ],
     },
     mockup: {
@@ -401,7 +401,7 @@ export const projects: Project[] = [
       ],
       result: [
         "A concept that shows how a Standard-tier ($650) build, nodding toward Custom once real booking is wired in, can make a grooming business look as sharp as its work.",
-        "It closes the loop on a vertical Daybreak was already approached about, and proves the studio can flex from soft-and-warm to bold-and-dark on demand.",
+        "It closes the loop on a vertical Daycraft was already approached about, and proves the studio can flex from soft-and-warm to bold-and-dark on demand.",
       ],
     },
     mockup: {

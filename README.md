@@ -1,9 +1,9 @@
-# Daybreak Studio
+# Daycraft Studio
 
-The portfolio site for **Daybreak Studio** — clean, fast, affordable websites
+The portfolio site for **Daycraft Studio** — clean, fast, affordable websites
 for small businesses in North Jersey. Built and run by **Igor Melnyk**.
 
-Live: <https://daybreakstudio.studio>
+Live: <https://daycraftstudio.com>
 
 Built with **Next.js 14 (App Router)**, **TypeScript**, **Tailwind CSS**,
 **Framer Motion**, and **Radix UI**. Deploy-ready for Vercel.
@@ -77,14 +77,14 @@ gets lost).
 
 To activate the form:
 
-1. Go to <https://formspree.io> and sign up using `hello@daybreakstudio.studio`.
-2. Click **"+ New form"** → name it "Daybreak Studio Contact".
+1. Go to <https://formspree.io> and sign up using `hello@daycraftstudio.com`.
+2. Click **"+ New form"** → name it "Daycraft Studio Contact".
 3. Copy the form endpoint URL (looks like `https://formspree.io/f/xxxxxxxx`).
 4. Open `components/contact.tsx` and replace the value of the
    `FORMSPREE_ENDPOINT` constant near the top of the file with your real
    endpoint.
 5. Verify the confirmation email Formspree sends.
-6. Done — submissions arrive at `hello@daybreakstudio.studio` within seconds.
+6. Done — submissions arrive at `hello@daycraftstudio.com` within seconds.
 
 Anti-spam: there's an invisible honeypot field named `website` in the form.
 Bots fill it; humans don't. We silently drop any submission where it's filled.
@@ -97,7 +97,7 @@ steps to:
 
 - **Promote WhatsApp from "Coming soon" → live** once Business is set up.
 - **Promote Telegram from "Coming soon" → live** once the account exists.
-- **Update the Instagram handle** if `@daybreak.studio.nj` ever changes.
+- **Update the Instagram handle** if `@daycraft.studio` ever changes.
 
 Footer also references the Instagram URL directly in `components/footer.tsx`
 — if you change the handle, update both files (the comment in `footer.tsx`
@@ -107,7 +107,7 @@ points at this).
 
 ## 4. Deploy to Vercel
 
-The site is already deployed and aliased to `daybreakstudio.studio`. Every
+The site is already deployed and aliased to `daycraftstudio.com`. Every
 `git push` to `main` is one `vercel --prod` away from going live (or, if you
 connect the repo in Vercel Settings → Git, it'll auto-deploy on push).
 
@@ -130,7 +130,7 @@ async headers() {
     source: "/(.*)",
     headers: [{
       key: "Content-Security-Policy",
-      value: "frame-ancestors 'self' https://*.daybreakstudio.studio https://*.vercel.app http://localhost:3000",
+      value: "frame-ancestors 'self' https://*.daycraftstudio.com https://*.vercel.app http://localhost:3000",
     }],
   }];
 }

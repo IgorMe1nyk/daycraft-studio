@@ -69,7 +69,7 @@ export default function About() {
               <div className="group relative aspect-[4/5] rounded-2xl overflow-hidden bg-paleBlue/40 ring-1 ring-charcoal/[0.06] shadow-[0_8px_28px_-12px_rgba(26,26,26,0.18)] transition-shadow duration-500 hover:shadow-[0_14px_40px_-12px_rgba(26,26,26,0.26)]">
                 <Image
                   src="/igor-photo.jpg"
-                  alt="Igor Melnyk, founder of Daybreak Studio"
+                  alt="Igor Melnyk, founder of Daycraft Studio"
                   fill
                   priority
                   sizes="(max-width: 768px) 100vw, 40vw"
@@ -111,7 +111,7 @@ export default function About() {
             >
               <p>
                 I&apos;m a computer science student at Rowan University,
-                originally from Ukraine. I started Daybreak Studio because I
+                originally from Ukraine. I started Daycraft Studio because I
                 noticed a gap: small business owners need real websites, but
                 agencies are expensive and DIY builders look amateur. I bridge
                 that gap.
@@ -120,9 +120,9 @@ export default function About() {
                 I build the site myself, deliver fast, and treat every project
                 like it&apos;s my own business. When I&apos;m not coding,
                 I&apos;m boxing, running, or planning my next trip. I work
-                early mornings and late nights — hence{" "}
+                early mornings and late nights — it&apos;s when I do my{" "}
                 <span className="text-charcoal italic font-serif">
-                  Daybreak
+                  best work
                 </span>
                 .
               </p>

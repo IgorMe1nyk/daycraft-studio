@@ -94,7 +94,7 @@ export default function Hero() {
           className="mt-8 text-lg sm:text-xl text-warmGray max-w-2xl leading-relaxed animate-fade-up"
           style={{ animationDelay: "200ms" }}
         >
-          Daybreak Studio builds clean, fast websites for small businesses in
+          Daycraft Studio builds clean, fast websites for small businesses in
           North Jersey. Delivered in days, not months.
         </p>
 

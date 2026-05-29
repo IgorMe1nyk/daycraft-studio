@@ -29,7 +29,7 @@ export function LogoMark({ className }: { className?: string }) {
 }
 
 /**
- * The wordmark is "Daybreak Studio" — proper case. The capital D + S need
+ * The wordmark is "Daycraft Studio" — proper case. The capital D + S need
  * a touch less negative letter-spacing than the lowercase original would,
  * so we use `tracking-[-0.005em]` (effectively normal) and `font-medium`
  * to keep visual weight in balance with the icon.
@@ -55,7 +55,7 @@ export function Logo({
           size === "sm" ? "text-[13px]" : "text-[15px]",
         )}
       >
-        Daybreak Studio
+        Daycraft Studio
       </span>
     </div>
   );

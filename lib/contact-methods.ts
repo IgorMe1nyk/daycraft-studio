@@ -10,7 +10,7 @@ import { Instagram, Mail, Phone, type LucideProps } from "lucide-react";
      (the tel: link, with no spaces or punctuation) on the Phone entry.
 
    Instagram handle:
-     If the handle ever changes from daybreak.studio.nj, edit the Instagram
+     If the handle ever changes from daycraft.studio, edit the Instagram
      entry's `display` and `href`.
 
    Adding more methods later (WhatsApp, Telegram, etc.):
@@ -39,8 +39,8 @@ export const contactMethods: ContactMethod[] = [
   {
     id: "email",
     label: "Email",
-    display: "hello@daybreakstudio.studio",
-    href: "mailto:hello@daybreakstudio.studio",
+    display: "hello@daycraftstudio.com",
+    href: "mailto:hello@daycraftstudio.com",
     Icon: Mail,
     openInNewTab: false,
   },
@@ -55,9 +55,9 @@ export const contactMethods: ContactMethod[] = [
   {
     id: "instagram",
     label: "Instagram",
-    // Instagram handle: daybreak.studio.nj — update here if the username changes
-    display: "@daybreak.studio.nj",
-    href: "https://instagram.com/daybreak.studio.nj",
+    // Instagram handle: daycraft.studio — update here if the username changes
+    display: "@daycraft.studio",
+    href: "https://instagram.com/daycraft.studio",
     Icon: Instagram,
     openInNewTab: true,
   },

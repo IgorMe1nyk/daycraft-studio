@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/lib/projects";
 
-const BASE = "https://daybreakstudio.studio";
+const BASE = "https://daycraftstudio.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

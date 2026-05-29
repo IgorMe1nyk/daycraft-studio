@@ -7,14 +7,14 @@
    inbox. Set it up once and forget about it.
 
      1. Go to https://formspree.io and sign up using
-        hello@daybreakstudio.studio.
-     2. Click "+ New form" → name it "Daybreak Studio Contact".
+        hello@daycraftstudio.com.
+     2. Click "+ New form" → name it "Daycraft Studio Contact".
      3. Copy the form endpoint URL — it looks like:
           https://formspree.io/f/xxxxxxxx
      4. Replace the FORMSPREE_ENDPOINT constant below with your real
         endpoint URL.
      5. Verify the email Formspree sends to confirm ownership.
-     6. Done — submissions will arrive at hello@daybreakstudio.studio
+     6. Done — submissions will arrive at hello@daycraftstudio.com
         within seconds of being sent.
 
    Anti-spam: there's an invisible honeypot field named "website". Bots
@@ -38,7 +38,7 @@ import { SectionHeading } from "./ui/section-heading";
 import { contactMethods, type ContactMethod } from "@/lib/contact-methods";
 import { cn } from "@/lib/utils";
 
-// Real Formspree endpoint — submissions arrive at hello@daybreakstudio.studio.
+// Real Formspree endpoint — submissions arrive at hello@daycraftstudio.com.
 // If you ever rotate the endpoint, see the setup steps at the top of this file.
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xykvwqlv";
 
@@ -218,10 +218,10 @@ export default function Contact() {
                   >
                     Something went wrong. Please email{" "}
                     <a
-                      href="mailto:hello@daybreakstudio.studio"
+                      href="mailto:hello@daycraftstudio.com"
                       className="underline underline-offset-2 hover:text-charcoal"
                     >
-                      hello@daybreakstudio.studio
+                      hello@daycraftstudio.com
                     </a>{" "}
                     directly — I&apos;ll reply within 24 hours.
                   </div>

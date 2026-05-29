@@ -16,10 +16,10 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: Params): Metadata {
   const project = getProject(params.slug);
-  if (!project) return { title: "Work · Daybreak Studio" };
+  if (!project) return { title: "Work · Daycraft Studio" };
 
   const kindLabel = project.kind === "concept" ? "Concept" : "Case study";
-  const title = `${project.name} · ${kindLabel} · Daybreak Studio`;
+  const title = `${project.name} · ${kindLabel} · Daycraft Studio`;
   const description = project.shortDesc;
 
   return {
@@ -28,7 +28,7 @@ export function generateMetadata({ params }: Params): Metadata {
     openGraph: {
       title,
       description,
-      url: `https://daybreakstudio.studio/work/${project.id}`,
+      url: `https://daycraftstudio.com/work/${project.id}`,
       type: "article",
     },
   };

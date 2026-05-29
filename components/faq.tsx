@@ -79,10 +79,10 @@ const faqs: { q: string; a: React.ReactNode }[] = [
       <>
         Just message me at{" "}
         <a
-          href="mailto:hello@daybreakstudio.studio"
+          href="mailto:hello@daycraftstudio.com"
           className="text-charcoal underline underline-offset-4 decoration-charcoal/25 hover:text-accent hover:decoration-accent transition-colors"
         >
-          hello@daybreakstudio.studio
+          hello@daycraftstudio.com
         </a>{" "}
         — I usually reply within a few hours.
       </>

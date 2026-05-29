@@ -67,7 +67,7 @@ function Hero() {
         >
           How working with{" "}
           <span className="font-serif italic font-normal text-accent">
-            Daybreak Studio
+            Daycraft Studio
           </span>{" "}
           actually works
         </m.h1>
@@ -99,7 +99,7 @@ const stages: {
     n: "01",
     title: "You reach out",
     youDo:
-      "Fill out the contact form on the home page (or email me directly at hello@daybreakstudio.studio). Tell me a little about your business and what kind of site you're thinking about.",
+      "Fill out the contact form on the home page (or email me directly at hello@daycraftstudio.com). Tell me a little about your business and what kind of site you're thinking about.",
     iDo: "Reply within 24 hours, usually faster.",
     timeline: "Day 0",
   },
@@ -503,7 +503,7 @@ function ClosingCTA() {
             <ArrowRight className="size-4" strokeWidth={2} />
           </a>
           <a
-            href="mailto:hello@daybreakstudio.studio"
+            href="mailto:hello@daycraftstudio.com"
             className={cn(buttonVariants({ variant: "ghost", size: "lg" }))}
           >
             Email me directly
