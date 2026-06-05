@@ -67,14 +67,18 @@ export function CaseStudyView({ slug }: { slug: string }) {
           )}
 
           <div className="mt-7 flex flex-wrap items-center gap-3">
-            {project.liveUrl && (project.kind === "real" || isPitch) ? (
+            {project.liveUrl ? (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(buttonVariants({ variant: "primary", size: "md" }))}
               >
-                {isPitch ? "View live pitch site" : "Visit live site"}
+                {isPitch
+                  ? "View live pitch site"
+                  : isConcept
+                    ? "View live concept"
+                    : "Visit live site"}
                 <ArrowUpRight className="size-4" strokeWidth={2} />
               </a>
             ) : null}

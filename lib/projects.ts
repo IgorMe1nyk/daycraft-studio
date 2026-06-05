@@ -526,6 +526,7 @@ export const projects: Project[] = [
       "A self-directed, fully bilingual concept for the quinceañera — editorial, premium, and built so the whole family gets the same first-class experience in both languages.",
     longDesc:
       "A self-directed concept for the biggest under-served event in Daycraft's own backyard: the quinceañera. Editorial and fully bilingual, built so a Spanish-dominant abuela and an English-first teenager get the same first-class experience — and so a family spending $15–25k on the day finally sees an invitation site that matches it.",
+    liveUrl: "https://mia-quince.daycraftstudio.com",
     displayUrl: "mia-quince.daycraftstudio.com",
     tier: "Standard",
     price: "$650",
