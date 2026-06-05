@@ -29,7 +29,7 @@ export default function AccessibilityPage() {
         <LegalPage
           eyebrow="Legal"
           title="Accessibility Statement"
-          updated="[EFFECTIVE DATE]"
+          updated="June 3, 2026"
           intro="Accessibility isn’t an add-on at Daycraft Studio — it’s how we build. We design and develop this site, and the sites we make for clients, to be usable by as many people as possible."
         >
           <LegalSection title="Our standard">
@@ -77,7 +77,7 @@ export default function AccessibilityPage() {
               technology and hit a wall, please email{" "}
               <a
                 href="mailto:hello@daycraftstudio.com"
-                className="text-charcoal underline underline-offset-2 hover:text-accent"
+                className="text-charcoal underline underline-offset-2 hover:text-accentDeep"
               >
                 hello@daycraftstudio.com
               </a>

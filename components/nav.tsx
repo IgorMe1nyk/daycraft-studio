@@ -73,7 +73,7 @@ export default function Nav() {
           ))}
           <a
             href="/#contact"
-            className="text-sm text-charcoal hover:text-accent transition-colors"
+            className="text-sm text-charcoal hover:text-accentDeep transition-colors"
           >
             Start a project →
           </a>
@@ -142,7 +142,7 @@ export default function Nav() {
                       duration: 0.4,
                       ease: [0.22, 1, 0.36, 1],
                     }}
-                    className="py-3 text-2xl tracking-tight text-charcoal hover:text-accent transition-colors border-b border-charcoal/[0.06]"
+                    className="py-3 text-2xl tracking-tight text-charcoal hover:text-accentDeep transition-colors border-b border-charcoal/[0.06]"
                   >
                     {l.label}
                   </m.a>

@@ -41,7 +41,7 @@ export default function Work() {
         >
           <Link
             href="/work"
-            className="group inline-flex items-center gap-1.5 text-sm font-medium text-charcoal hover:text-accent transition-colors"
+            className="group inline-flex items-center gap-1.5 text-sm font-medium text-charcoal hover:text-accentDeep transition-colors"
           >
             View all work
             <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -89,11 +89,11 @@ export function WorkCard({
           <div className="min-w-0">
             <div className="flex items-center gap-2">
               {(isConcept || isPitch) && (
-                <span className="text-[9px] tracking-[0.18em] uppercase text-warmGray/80 bg-paleBlue/60 border border-charcoal/[0.07] rounded-full px-2 py-0.5">
+                <span className="text-[9px] tracking-[0.18em] uppercase text-warmGray bg-paleBlue/60 border border-charcoal/[0.07] rounded-full px-2 py-0.5">
                   {isPitch ? "Pitch" : "Concept"}
                 </span>
               )}
-              <span className="text-[11px] tracking-[0.18em] text-accent uppercase truncate">
+              <span className="text-[11px] tracking-[0.18em] text-accentDeep uppercase truncate">
                 {label}
               </span>
             </div>
@@ -103,7 +103,7 @@ export function WorkCard({
               {project.name}
             </h2>
           </div>
-          <span className="shrink-0 inline-flex items-center gap-1 text-sm text-warmGray group-hover:text-accent transition-colors">
+          <span className="shrink-0 inline-flex items-center gap-1 text-sm text-warmGray group-hover:text-accentDeep transition-colors">
             View case study
             <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </span>

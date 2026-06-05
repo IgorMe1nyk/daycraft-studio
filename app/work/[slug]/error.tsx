@@ -29,7 +29,7 @@ export default function CaseStudyError({
         </Link>
       </header>
       <main className="flex-1 flex flex-col items-center justify-center text-center px-6 pb-24">
-        <span className="text-[11px] tracking-[0.22em] text-accent uppercase">
+        <span className="text-[11px] tracking-[0.22em] text-accentDeep uppercase">
           Couldn&apos;t load this project
         </span>
         <h1 className="mt-4 font-display font-medium text-h1 text-charcoal max-w-2xl">

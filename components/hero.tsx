@@ -139,7 +139,7 @@ export default function Hero() {
         <a
           href="#services"
           aria-label="Scroll to services"
-          className="hidden md:flex absolute bottom-6 lg:bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-warmGray/70 hover:text-accent transition-colors animate-fade-up"
+          className="hidden md:flex absolute bottom-6 lg:bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-warmGray/70 hover:text-accentDeep transition-colors animate-fade-up"
           style={{ animationDelay: "800ms" }}
         >
           <span className="text-[10px] tracking-[0.22em] uppercase">scroll</span>

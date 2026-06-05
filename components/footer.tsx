@@ -57,13 +57,13 @@ export default function Footer() {
           </a>
           <a
             href="mailto:hello@daycraftstudio.com"
-            className="text-warmGray hover:text-accent transition-colors"
+            className="text-warmGray hover:text-accentDeep transition-colors"
           >
             hello@daycraftstudio.com
           </a>
           <a
             href="tel:+12017710092"
-            className="inline-flex items-center gap-1.5 text-warmGray hover:text-accent transition-colors"
+            className="inline-flex items-center gap-1.5 text-warmGray hover:text-accentDeep transition-colors"
           >
             <Phone className="size-3.5" aria-hidden />
             (201) 771-0092
@@ -74,7 +74,7 @@ export default function Footer() {
             href="https://instagram.com/daycraft.studio"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-warmGray hover:text-accent transition-colors"
+            className="inline-flex items-center gap-1.5 text-warmGray hover:text-accentDeep transition-colors"
           >
             <Instagram className="size-3.5" aria-hidden />
             @daycraft.studio
@@ -90,19 +90,19 @@ export default function Footer() {
         >
           <a
             href="/event-sites"
-            className="hover:text-accent transition-colors"
+            className="hover:text-accentDeep transition-colors"
           >
             Event websites
           </a>
           <a
             href="/personal-brand"
-            className="hover:text-accent transition-colors"
+            className="hover:text-accentDeep transition-colors"
           >
             Personal brand
           </a>
           <a
             href="/business-sites"
-            className="hover:text-accent transition-colors"
+            className="hover:text-accentDeep transition-colors"
           >
             Local business
           </a>
@@ -116,15 +116,15 @@ export default function Footer() {
             aria-label="Legal"
             className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-warmGray"
           >
-            <a href="/privacy" className="hover:text-accent transition-colors">
+            <a href="/privacy" className="hover:text-accentDeep transition-colors">
               Privacy
             </a>
-            <a href="/terms" className="hover:text-accent transition-colors">
+            <a href="/terms" className="hover:text-accentDeep transition-colors">
               Terms
             </a>
             <a
               href="/accessibility"
-              className="hover:text-accent transition-colors"
+              className="hover:text-accentDeep transition-colors"
             >
               Accessibility
             </a>

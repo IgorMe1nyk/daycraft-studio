@@ -109,7 +109,7 @@ export default function Contact() {
           Not sure how this works?{" "}
           <a
             href="/how-it-works"
-            className="text-charcoal hover:text-accent transition-colors underline underline-offset-4 decoration-charcoal/25 hover:decoration-accent"
+            className="text-charcoal hover:text-accentDeep transition-colors underline underline-offset-4 decoration-charcoal/25 hover:decoration-accent"
           >
             Here&apos;s the full step-by-step →
           </a>
@@ -311,7 +311,7 @@ function ContactMethodRow({ method }: { method: ContactMethod }) {
         <span className="block text-[11px] tracking-[0.14em] text-warmGray uppercase">
           {label}
         </span>
-        <span className="block text-sm truncate text-charcoal group-hover:text-accent transition-colors">
+        <span className="block text-sm truncate text-charcoal group-hover:text-accentDeep transition-colors">
           {display}
         </span>
       </span>
@@ -344,7 +344,7 @@ function SuccessState({ onReset }: { onReset: () => void }) {
       <button
         type="button"
         onClick={onReset}
-        className="mt-8 text-sm text-warmGray hover:text-accent underline underline-offset-4 decoration-charcoal/15 hover:decoration-accent transition-colors"
+        className="mt-8 text-sm text-warmGray hover:text-accentDeep underline underline-offset-4 decoration-charcoal/15 hover:decoration-accent transition-colors"
       >
         Send another message
       </button>

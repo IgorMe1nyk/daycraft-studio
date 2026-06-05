@@ -57,7 +57,7 @@ export function LandingPage({ config }: { config: LandingConfig }) {
           className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-paleBlue/40 via-cream to-cream"
         />
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
-          <span className="text-[11px] tracking-[0.18em] text-accent uppercase">
+          <span className="text-[11px] tracking-[0.18em] text-accentDeep uppercase">
             {config.eyebrow}
           </span>
           <h1 className="mt-5 font-display font-medium text-hero-display text-charcoal text-balance">
@@ -130,7 +130,7 @@ export function LandingPage({ config }: { config: LandingConfig }) {
             <div className="mt-12 text-center">
               <Link
                 href="/work"
-                className="group inline-flex items-center gap-1.5 text-sm font-medium text-charcoal hover:text-accent transition-colors"
+                className="group inline-flex items-center gap-1.5 text-sm font-medium text-charcoal hover:text-accentDeep transition-colors"
               >
                 See all work
                 <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />

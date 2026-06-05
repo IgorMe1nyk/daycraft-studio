@@ -40,7 +40,7 @@ export default function Error({
           <span className="absolute left-1/2 -translate-x-1/2 top-[calc(50%+10px)] size-4 rounded-full bg-accent/70" />
         </div>
 
-        <span className="text-[11px] tracking-[0.22em] text-accent uppercase">
+        <span className="text-[11px] tracking-[0.22em] text-accentDeep uppercase">
           Something broke
         </span>
         <h1 className="mt-4 font-display font-medium text-h1 text-charcoal max-w-2xl">

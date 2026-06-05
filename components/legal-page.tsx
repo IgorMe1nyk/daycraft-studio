@@ -29,13 +29,13 @@ export function LegalPage({
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
         <Link
           href="/"
-          className="group inline-flex items-center gap-1.5 text-sm text-warmGray hover:text-accent transition-colors"
+          className="group inline-flex items-center gap-1.5 text-sm text-warmGray hover:text-accentDeep transition-colors"
         >
           <ArrowLeft className="size-4 transition-transform duration-200 group-hover:-translate-x-0.5" />
           Home
         </Link>
 
-        <span className="mt-8 block text-[11px] tracking-[0.18em] text-accent uppercase">
+        <span className="mt-8 block text-[11px] tracking-[0.18em] text-accentDeep uppercase">
           {eyebrow}
         </span>
         <h1 className="mt-4 font-display font-medium text-h1 text-charcoal">
@@ -60,7 +60,7 @@ export function LegalPage({
           Questions about this page? Email{" "}
           <a
             href="mailto:hello@daycraftstudio.com"
-            className="text-charcoal hover:text-accent underline underline-offset-4 decoration-charcoal/25 hover:decoration-accent transition-colors"
+            className="text-charcoal hover:text-accentDeep underline underline-offset-4 decoration-charcoal/25 hover:decoration-accent transition-colors"
           >
             hello@daycraftstudio.com
           </a>

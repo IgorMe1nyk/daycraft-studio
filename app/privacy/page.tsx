@@ -30,7 +30,7 @@ export default function PrivacyPage() {
         <LegalPage
           eyebrow="Legal"
           title="Privacy Policy"
-          updated="[EFFECTIVE DATE]"
+          updated="June 3, 2026"
           intro="This policy explains what information Daycraft Studio collects when you use this website, why, and the choices you have. We keep it short because we collect very little."
         >
           <LegalSection title="Who we are">
@@ -39,7 +39,7 @@ export default function PrivacyPage() {
               United States, operated by Igor Melnyk. You can reach us at{" "}
               <a
                 href="mailto:hello@daycraftstudio.com"
-                className="text-charcoal underline underline-offset-2 hover:text-accent"
+                className="text-charcoal underline underline-offset-2 hover:text-accentDeep"
               >
                 hello@daycraftstudio.com
               </a>
@@ -123,7 +123,7 @@ export default function PrivacyPage() {
               communications. To exercise any of these rights, email{" "}
               <a
                 href="mailto:hello@daycraftstudio.com"
-                className="text-charcoal underline underline-offset-2 hover:text-accent"
+                className="text-charcoal underline underline-offset-2 hover:text-accentDeep"
               >
                 hello@daycraftstudio.com
               </a>{" "}

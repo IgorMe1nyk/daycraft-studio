@@ -29,7 +29,7 @@ export default function NotFound() {
           <span className="absolute left-1/2 -translate-x-1/2 top-[calc(50%+10px)] size-4 rounded-full bg-accent/70 animate-sun-pulse" />
         </div>
 
-        <span className="text-[11px] tracking-[0.22em] text-accent uppercase">
+        <span className="text-[11px] tracking-[0.22em] text-accentDeep uppercase">
           404
         </span>
         <h1 className="mt-4 font-display font-medium text-h1 text-charcoal max-w-2xl">
@@ -41,16 +41,16 @@ export default function NotFound() {
         </p>
 
         <div className="mt-9 flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-sm">
-          <Link href="/" className="text-charcoal hover:text-accent transition-colors font-medium">
+          <Link href="/" className="text-charcoal hover:text-accentDeep transition-colors font-medium">
             Home
           </Link>
-          <Link href="/work" className="text-warmGray hover:text-accent transition-colors">
+          <Link href="/work" className="text-warmGray hover:text-accentDeep transition-colors">
             Work
           </Link>
-          <Link href="/#services" className="text-warmGray hover:text-accent transition-colors">
+          <Link href="/#services" className="text-warmGray hover:text-accentDeep transition-colors">
             Services
           </Link>
-          <Link href="/#contact" className="text-warmGray hover:text-accent transition-colors">
+          <Link href="/#contact" className="text-warmGray hover:text-accentDeep transition-colors">
             Contact
           </Link>
         </div>

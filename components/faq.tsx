@@ -80,7 +80,7 @@ const faqs: { q: string; a: React.ReactNode }[] = [
         Just message me at{" "}
         <a
           href="mailto:hello@daycraftstudio.com"
-          className="text-charcoal underline underline-offset-4 decoration-charcoal/25 hover:text-accent hover:decoration-accent transition-colors"
+          className="text-charcoal underline underline-offset-4 decoration-charcoal/25 hover:text-accentDeep hover:decoration-accent transition-colors"
         >
           hello@daycraftstudio.com
         </a>{" "}
@@ -135,7 +135,7 @@ export default function FAQ() {
           Want the full step-by-step?{" "}
           <a
             href="/how-it-works"
-            className="text-charcoal hover:text-accent transition-colors underline underline-offset-4 decoration-charcoal/25 hover:decoration-accent"
+            className="text-charcoal hover:text-accentDeep transition-colors underline underline-offset-4 decoration-charcoal/25 hover:decoration-accent"
           >
             Read the detailed process →
           </a>

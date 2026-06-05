@@ -265,8 +265,8 @@ export default function Services() {
                   className={cn(
                     "group/cta mt-8 inline-flex items-center gap-1.5 text-sm transition-colors duration-200",
                     t.popular
-                      ? "text-accent hover:text-accentDeep font-medium"
-                      : "text-charcoal hover:text-accent",
+                      ? "text-accentDeep hover:text-accentDeep font-medium"
+                      : "text-charcoal hover:text-accentDeep",
                   )}
                 >
                   {t.cta}
@@ -278,7 +278,7 @@ export default function Services() {
                 {t.tier === "STARTER" && (
                   <a
                     href="#work"
-                    className="mt-2 inline-block text-xs text-warmGray/80 hover:text-accent transition-colors"
+                    className="mt-2 inline-block text-xs text-warmGray/80 hover:text-accentDeep transition-colors"
                   >
                     See an example →
                   </a>
@@ -300,21 +300,21 @@ export default function Services() {
           See examples for your project:{" "}
           <a
             href="/event-sites"
-            className="text-charcoal hover:text-accent underline underline-offset-4 decoration-charcoal/20 hover:decoration-accent transition-colors"
+            className="text-charcoal hover:text-accentDeep underline underline-offset-4 decoration-charcoal/20 hover:decoration-accent transition-colors"
           >
             events
           </a>
           {" · "}
           <a
             href="/personal-brand"
-            className="text-charcoal hover:text-accent underline underline-offset-4 decoration-charcoal/20 hover:decoration-accent transition-colors"
+            className="text-charcoal hover:text-accentDeep underline underline-offset-4 decoration-charcoal/20 hover:decoration-accent transition-colors"
           >
             personal brand
           </a>
           {" · "}
           <a
             href="/business-sites"
-            className="text-charcoal hover:text-accent underline underline-offset-4 decoration-charcoal/20 hover:decoration-accent transition-colors"
+            className="text-charcoal hover:text-accentDeep underline underline-offset-4 decoration-charcoal/20 hover:decoration-accent transition-colors"
           >
             local business
           </a>

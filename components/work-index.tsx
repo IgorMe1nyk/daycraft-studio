@@ -32,7 +32,7 @@ export function WorkIndex() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: easeOut }}
-          className="text-[11px] tracking-[0.18em] text-accent uppercase block"
+          className="text-[11px] tracking-[0.18em] text-accentDeep uppercase block"
         >
           Work
         </m.span>

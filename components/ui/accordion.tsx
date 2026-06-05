@@ -36,8 +36,8 @@ const AccordionTrigger = React.forwardRef<
       className={cn(
         "group flex flex-1 items-start gap-4 py-5 text-left",
         "text-[16px] sm:text-[17px] text-charcoal tracking-[-0.005em]",
-        "transition-colors hover:text-accent",
-        "focus-visible:outline-none focus-visible:text-accent",
+        "transition-colors hover:text-accentDeep",
+        "focus-visible:outline-none focus-visible:text-accentDeep",
         className,
       )}
       {...props}
@@ -48,7 +48,7 @@ const AccordionTrigger = React.forwardRef<
         aria-hidden
       >
         <Plus
-          className="size-4 text-warmGray group-hover:text-accent group-data-[state=open]:text-accent transition-[transform,color] duration-300 group-data-[state=open]:rotate-45"
+          className="size-4 text-warmGray group-hover:text-accentDeep group-data-[state=open]:text-accentDeep transition-[transform,color] duration-300 group-data-[state=open]:rotate-45"
           strokeWidth={1.8}
         />
       </span>

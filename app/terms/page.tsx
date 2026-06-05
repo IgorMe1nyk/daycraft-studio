@@ -28,7 +28,7 @@ export default function TermsPage() {
         <LegalPage
           eyebrow="Legal"
           title="Terms of Service"
-          updated="[EFFECTIVE DATE]"
+          updated="June 3, 2026"
           intro="These terms cover your use of the Daycraft Studio website. Any actual design work we do together is governed by a separate written agreement for that project."
         >
           <LegalSection title="Using this site">

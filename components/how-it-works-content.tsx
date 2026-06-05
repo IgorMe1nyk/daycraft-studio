@@ -46,7 +46,7 @@ function Hero() {
           initial={{ opacity: 0, x: -8 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: easeOut }}
-          className="inline-flex items-center gap-1.5 text-sm text-warmGray hover:text-accent transition-colors"
+          className="inline-flex items-center gap-1.5 text-sm text-warmGray hover:text-accentDeep transition-colors"
         >
           <ArrowLeft className="size-3.5" strokeWidth={1.8} />
           Back to home
@@ -55,7 +55,7 @@ function Hero() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05, ease: easeOut }}
-          className="mt-10 block text-[11px] tracking-[0.18em] text-accent uppercase"
+          className="mt-10 block text-[11px] tracking-[0.18em] text-accentDeep uppercase"
         >
           The full guide
         </m.span>
@@ -189,7 +189,7 @@ function Stages() {
                   aria-hidden
                   className="absolute inset-0 rounded-full bg-accent/15 blur-md scale-150 opacity-50"
                 />
-                <span className="relative z-10 inline-flex items-center justify-center size-10 rounded-full bg-cream border border-accent/40 text-accent text-[11px] font-medium tracking-[0.14em]">
+                <span className="relative z-10 inline-flex items-center justify-center size-10 rounded-full bg-cream border border-accent/40 text-accentDeep text-[11px] font-medium tracking-[0.14em]">
                   {s.n}
                 </span>
               </div>
@@ -206,13 +206,13 @@ function Stages() {
 
                 <div className="mt-4 space-y-3.5 text-[15px] leading-relaxed">
                   <p>
-                    <span className="inline-block text-[11px] tracking-[0.18em] uppercase text-accent mr-2 align-baseline">
+                    <span className="inline-block text-[11px] tracking-[0.18em] uppercase text-accentDeep mr-2 align-baseline">
                       You
                     </span>
                     <span className="text-charcoal/85">{s.youDo}</span>
                   </p>
                   <p>
-                    <span className="inline-block text-[11px] tracking-[0.18em] uppercase text-accent mr-2 align-baseline">
+                    <span className="inline-block text-[11px] tracking-[0.18em] uppercase text-accentDeep mr-2 align-baseline">
                       Me
                     </span>
                     <span className="text-charcoal/85">{s.iDo}</span>
@@ -272,7 +272,7 @@ function Money() {
               }}
               className="rounded-2xl border border-charcoal/[0.08] bg-cream p-6 lg:p-7"
             >
-              <h3 className="text-[11px] tracking-[0.18em] uppercase text-accent">
+              <h3 className="text-[11px] tracking-[0.18em] uppercase text-accentDeep">
                 {card.title}
               </h3>
               <p className="mt-3 text-[15px] text-charcoal/85 leading-relaxed">
@@ -295,7 +295,7 @@ const domainSteps = [
       href="https://www.namecheap.com"
       target="_blank"
       rel="noopener noreferrer"
-      className="text-charcoal underline underline-offset-4 decoration-charcoal/25 hover:text-accent hover:decoration-accent transition-colors font-medium"
+      className="text-charcoal underline underline-offset-4 decoration-charcoal/25 hover:text-accentDeep hover:decoration-accent transition-colors font-medium"
     >
       namecheap.com
     </a>{" "}
@@ -304,7 +304,7 @@ const domainSteps = [
       href="https://www.cloudflare.com"
       target="_blank"
       rel="noopener noreferrer"
-      className="text-charcoal underline underline-offset-4 decoration-charcoal/25 hover:text-accent hover:decoration-accent transition-colors font-medium"
+      className="text-charcoal underline underline-offset-4 decoration-charcoal/25 hover:text-accentDeep hover:decoration-accent transition-colors font-medium"
     >
       cloudflare.com
     </a>
@@ -367,7 +367,7 @@ function Domain() {
         >
           {domainSteps.map((step, i) => (
             <li key={i} className="flex gap-3 text-[15px] text-charcoal/85">
-              <span className="inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-accent/12 text-accent text-[11px] font-medium tracking-tight">
+              <span className="inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-accent/12 text-accentDeep text-[11px] font-medium tracking-tight">
                 {i + 1}
               </span>
               <span className="flex-1 leading-relaxed pt-0.5">{step}</span>
@@ -393,7 +393,7 @@ function Domain() {
           transition={{ duration: 0.6, delay: 0.2, ease: easeOut }}
           className="mt-8 flex gap-3 rounded-xl border border-accent/20 bg-accent/[0.05] p-4 lg:p-5"
         >
-          <span className="text-[10px] tracking-[0.18em] uppercase text-accent shrink-0 mt-0.5">
+          <span className="text-[10px] tracking-[0.18em] uppercase text-accentDeep shrink-0 mt-0.5">
             Tip
           </span>
           <p className="text-[14.5px] text-charcoal/85 leading-relaxed">

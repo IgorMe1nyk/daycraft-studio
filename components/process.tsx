@@ -84,7 +84,7 @@ export default function Process() {
                     aria-hidden
                     className="absolute inset-0 rounded-full bg-accent/15 blur-md scale-150 opacity-60"
                   />
-                  <span className="relative z-10 inline-flex items-center justify-center size-10 rounded-full bg-cream border border-accent/40 text-accent text-[11px] font-medium tracking-[0.14em]">
+                  <span className="relative z-10 inline-flex items-center justify-center size-10 rounded-full bg-cream border border-accent/40 text-accentDeep text-[11px] font-medium tracking-[0.14em]">
                     {s.n}
                   </span>
                 </div>

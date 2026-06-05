@@ -86,7 +86,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, ease: easeOut }}
-              className="text-[11px] tracking-[0.18em] text-accent uppercase block"
+              className="text-[11px] tracking-[0.18em] text-accentDeep uppercase block"
             >
               About
             </m.span>
@@ -202,7 +202,7 @@ export default function About() {
                 Every site I build targets{" "}
                 <a
                   href="/accessibility"
-                  className="text-charcoal hover:text-accent underline underline-offset-4 decoration-charcoal/25 hover:decoration-accent transition-colors"
+                  className="text-charcoal hover:text-accentDeep underline underline-offset-4 decoration-charcoal/25 hover:decoration-accent transition-colors"
                 >
                   WCAG 2.2 AA accessibility
                 </a>{" "}

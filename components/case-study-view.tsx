@@ -34,7 +34,7 @@ export function CaseStudyView({ slug }: { slug: string }) {
         {/* Back link */}
         <Link
           href="/work"
-          className="group inline-flex items-center gap-1.5 text-sm text-warmGray hover:text-accent transition-colors"
+          className="group inline-flex items-center gap-1.5 text-sm text-warmGray hover:text-accentDeep transition-colors"
         >
           <ArrowLeft className="size-4 transition-transform duration-200 group-hover:-translate-x-0.5" />
           Selected work
@@ -44,11 +44,11 @@ export function CaseStudyView({ slug }: { slug: string }) {
         <div className="mt-8 max-w-3xl">
           <div className="flex items-center gap-2.5">
             {(isConcept || isPitch) && (
-              <span className="text-[9px] tracking-[0.18em] uppercase text-warmGray/80 bg-paleBlue/60 border border-charcoal/[0.07] rounded-full px-2 py-0.5">
+              <span className="text-[9px] tracking-[0.18em] uppercase text-warmGray bg-paleBlue/60 border border-charcoal/[0.07] rounded-full px-2 py-0.5">
                 {isPitch ? "Pitch" : "Concept"}
               </span>
             )}
-            <span className="text-[11px] tracking-[0.18em] text-accent uppercase">
+            <span className="text-[11px] tracking-[0.18em] text-accentDeep uppercase">
               {project.tag}
             </span>
           </div>
@@ -60,7 +60,7 @@ export function CaseStudyView({ slug }: { slug: string }) {
           </p>
 
           {isConcept && (
-            <p className="mt-5 text-[13px] leading-relaxed text-warmGray/80 italic border-l-2 border-accent/30 pl-4">
+            <p className="mt-5 text-[13px] leading-relaxed text-warmGray italic border-l-2 border-accent/30 pl-4">
               {project.disclaimer ??
                 "This is a concept project — a self-directed design exercise, not a commissioned client site. Imagery is licensed stock, chosen to demonstrate the design direction; copy is illustrative."}
             </p>
@@ -82,7 +82,7 @@ export function CaseStudyView({ slug }: { slug: string }) {
                 <ArrowUpRight className="size-4" strokeWidth={2} />
               </a>
             ) : null}
-            <span className="text-xs text-warmGray/85">
+            <span className="text-xs text-warmGray">
               {isPitch
                 ? `${project.price} · ${project.buildTime}`
                 : `${project.tier} Tier · ${project.price} · ${project.buildTime}`}
@@ -99,11 +99,11 @@ export function CaseStudyView({ slug }: { slug: string }) {
         >
           <ProjectPreview project={project} priority={isPitch} />
           {isPitch ? (
-            <p className="mt-3 text-center text-xs text-warmGray/70">
+            <p className="mt-3 text-center text-xs text-warmGray">
               Live preview · leor.daycraftstudio.com
             </p>
           ) : (
-            <p className="mt-3 text-center text-xs text-warmGray/70">
+            <p className="mt-3 text-center text-xs text-warmGray">
               Palette: {project.palette.name}
             </p>
           )}
@@ -207,7 +207,7 @@ function Section({
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, ease: easeOut }}
     >
-      <h2 className="text-[11px] tracking-[0.18em] text-accent uppercase">
+      <h2 className="text-[11px] tracking-[0.18em] text-accentDeep uppercase">
         {label}
       </h2>
       <div className="mt-4">{children}</div>
