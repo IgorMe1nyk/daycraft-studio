@@ -49,6 +49,17 @@ export default function Hero() {
             "radial-gradient(circle, rgba(107,140,174,0.55) 0%, transparent 70%)",
         }}
       />
+      {/* Living-gradient accent — a slow, GPU-friendly aurora drifting behind
+          the headline. Pure CSS (no JS) so the LCP headline still paints on
+          first frame; collapses to a static gradient under reduced-motion. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-12 left-[8%] w-[720px] max-w-[90vw] h-[460px] rounded-full blur-3xl animate-aurora"
+        style={{
+          background:
+            "radial-gradient(60% 60% at 50% 50%, rgba(107,140,174,0.30) 0%, rgba(232,238,244,0.20) 45%, transparent 75%)",
+        }}
+      />
 
       <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
         {/* Pill badge with animated sun */}

@@ -43,12 +43,12 @@ export function LegalPage({
         </h1>
         <p className="mt-5 text-warmGray text-body-lg leading-relaxed">{intro}</p>
 
-        <p className="mt-4 text-[13px] text-warmGray/80">
+        <p className="mt-4 text-[13px] text-warmGray">
           Effective date: {updated}
         </p>
 
         {/* Honest disclaimer — these are starter templates, not legal advice. */}
-        <p className="mt-5 text-[13px] leading-relaxed text-warmGray/80 italic border-l-2 border-accent/30 pl-4">
+        <p className="mt-5 text-[13px] leading-relaxed text-warmGray italic border-l-2 border-accent/30 pl-4">
           This page is a plain-English starter template provided for
           transparency. It is not legal advice and has not been reviewed by an
           attorney. Have it reviewed by a qualified lawyer before relying on it.

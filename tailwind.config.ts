@@ -89,6 +89,10 @@ const config: Config = {
         "fade-up": "fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both",
         "grow-x": "grow-x 0.9s cubic-bezier(0.22, 1, 0.36, 1) both",
         "scroll-bounce": "scroll-bounce 2.4s ease-in-out infinite",
+        // Slow, GPU-friendly drift for the hero's living-gradient accent.
+        // Disabled automatically by the prefers-reduced-motion block in
+        // globals.css (becomes a static gradient).
+        aurora: "aurora 18s ease-in-out infinite",
       },
       keyframes: {
         "sun-pulse": {
@@ -106,6 +110,16 @@ const config: Config = {
         "scroll-bounce": {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(4px)" },
+        },
+        aurora: {
+          "0%, 100%": {
+            transform: "translate3d(0, 0, 0) scale(1)",
+            opacity: "0.5",
+          },
+          "50%": {
+            transform: "translate3d(3%, -2%, 0) scale(1.12)",
+            opacity: "0.78",
+          },
         },
         "overlay-in": {
           from: { opacity: "0" },

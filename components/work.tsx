@@ -97,9 +97,11 @@ export function WorkCard({
                 {label}
               </span>
             </div>
-            <h3 className="mt-1.5 text-xl tracking-tight text-charcoal">
+            {/* h2 (not h3) so the /work index — which opens with an <h1> and
+                no intervening h2 — has no skipped heading levels (a11y). */}
+            <h2 className="mt-1.5 text-xl tracking-tight text-charcoal">
               {project.name}
-            </h3>
+            </h2>
           </div>
           <span className="shrink-0 inline-flex items-center gap-1 text-sm text-warmGray group-hover:text-accent transition-colors">
             View case study

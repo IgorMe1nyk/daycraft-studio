@@ -190,6 +190,24 @@ export default function About() {
                 In negotiation: an editorial site for a NY/NJ wedding
                 photographer — see the Leor Meltser pitch in my work.
               </m.p>
+
+              {/* Accessibility as a differentiator — honest credibility line. */}
+              <m.p
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.5, delay: 0.56, ease: easeOut }}
+                className="mt-4 text-sm text-warmGray leading-relaxed"
+              >
+                Every site I build targets{" "}
+                <a
+                  href="/accessibility"
+                  className="text-charcoal hover:text-accent underline underline-offset-4 decoration-charcoal/25 hover:decoration-accent transition-colors"
+                >
+                  WCAG 2.2 AA accessibility
+                </a>{" "}
+                — most small-business sites don&apos;t.
+              </m.p>
             </div>
           </div>
         </div>

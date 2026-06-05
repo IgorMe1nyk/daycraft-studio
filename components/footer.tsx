@@ -12,7 +12,7 @@ export default function Footer() {
             <br />
             Built with care in North Jersey
             <span className="text-warmGray/60"> · </span>
-            <span className="italic font-serif text-warmGray/80">
+            <span className="italic font-serif text-warmGray">
               Crafted before the sun comes up.
             </span>
           </p>
@@ -114,7 +114,7 @@ export default function Footer() {
         <div className="pt-6 border-t border-charcoal/[0.06] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <nav
             aria-label="Legal"
-            className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-warmGray/80"
+            className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-warmGray"
           >
             <a href="/privacy" className="hover:text-accent transition-colors">
               Privacy
@@ -129,7 +129,7 @@ export default function Footer() {
               Accessibility
             </a>
           </nav>
-          <p className="text-xs text-warmGray/60">
+          <p className="text-xs text-warmGray">
             Essential cookies only · No tracking
           </p>
         </div>
