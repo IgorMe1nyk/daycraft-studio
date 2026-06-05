@@ -61,9 +61,8 @@ export function CaseStudyView({ slug }: { slug: string }) {
 
           {isConcept && (
             <p className="mt-5 text-[13px] leading-relaxed text-warmGray/80 italic border-l-2 border-accent/30 pl-4">
-              This is a concept project — a self-directed design exercise, not a
-              commissioned client site. Imagery is licensed stock, chosen to
-              demonstrate the design direction; copy is illustrative.
+              {project.disclaimer ??
+                "This is a concept project — a self-directed design exercise, not a commissioned client site. Imagery is licensed stock, chosen to demonstrate the design direction; copy is illustrative."}
             </p>
           )}
 
@@ -164,7 +163,8 @@ export function CaseStudyView({ slug }: { slug: string }) {
             {isPitch
               ? "If you're a photographer, creative, or small business that takes craft seriously — let's talk."
               : isConcept
-                ? "This is concept work — but it's exactly the kind of site I build for real businesses. Tell me about yours."
+                ? project.ctaText ??
+                  "This is concept work — but it's exactly the kind of site I build for real businesses. Tell me about yours."
                 : "Tell me about your project and I'll get back to you within 24 hours."}
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3">

@@ -1,9 +1,11 @@
 import {
   CalendarClock,
+  CalendarPlus,
   Camera,
   Clock,
   Coffee,
   Croissant,
+  Crown,
   FileSignature,
   Gift,
   Hammer,
@@ -12,9 +14,11 @@ import {
   Image as ImageIcon,
   Images,
   Instagram,
+  Languages,
   Leaf,
   ListChecks,
   MapPin,
+  Music,
   Quote,
   Scissors,
   Search,
@@ -131,6 +135,11 @@ export interface Project {
   mockupImages?: { src: string; alt: string }[];
   /** Concepts: acknowledge stock/placeholder imagery honestly. */
   stockNote?: boolean;
+  /** Optional override for the concept disclaimer paragraph. When absent, the
+   *  default concept disclaimer is shown. */
+  disclaimer?: string;
+  /** Optional override for the bottom CTA supporting line. */
+  ctaText?: string;
 }
 
 export const projects: Project[] = [
@@ -506,6 +515,78 @@ export const projects: Project[] = [
       { src: "/concepts/barber-2.jpg", alt: "A sharp fade being cut with a comb" },
       { src: "/concepts/barber-3.jpg", alt: "A beard trim in progress" },
     ],
+  },
+  {
+    id: "mia-quince",
+    kind: "concept",
+    name: "Mía's Quinceañera",
+    vertical: "Quinceañera · RSVP Site",
+    tag: "Concept · Quinceañera",
+    shortDesc:
+      "A self-directed, fully bilingual concept for the quinceañera — editorial, premium, and built so the whole family gets the same first-class experience in both languages.",
+    longDesc:
+      "A self-directed concept for the biggest under-served event in Daycraft's own backyard: the quinceañera. Editorial and fully bilingual, built so a Spanish-dominant abuela and an English-first teenager get the same first-class experience — and so a family spending $15–25k on the day finally sees an invitation site that matches it.",
+    displayUrl: "mia-quince.daycraftstudio.com",
+    tier: "Standard",
+    price: "$650",
+    buildTime: "Concept build",
+    featured: true,
+    stockNote: true,
+    disclaimer:
+      "This is a concept project — a self-directed design exercise, not a commissioned client site. The family is fictional, the imagery is licensed stock chosen to show the design direction, and the copy is illustrative. The Spanish shown is a working draft pending native-speaker review.",
+    ctaText:
+      "This is concept work — but it's exactly the kind of site I build for real families and businesses. Planning a quinceañera, a wedding, or a big event? Tell me about it.",
+    screenshot: {
+      src: "/work/mia-quince/mia-hero.jpg",
+      alt: "Mía's Quinceañera concept site — bilingual editorial homepage hero with a gold monogram",
+    },
+    palette: {
+      name: "Cream, charcoal & soft gold",
+      bg: "#FAF8F3",
+      ink: "#1A1A1A",
+      muted: "#8A8378",
+      accent: "#C2A14D",
+      accent2: "#E8DBB8",
+    },
+    cardFeatures: [
+      { label: "English ⇄ Spanish Toggle", Icon: Languages },
+      { label: "Cinematic Hero + Monogram", Icon: Crown },
+      { label: "Live Countdown", Icon: Timer },
+      { label: "RSVP Flow", Icon: ListChecks },
+      { label: "Gallery Lightbox", Icon: Images },
+    ],
+    features: [
+      { label: "One-tap English ⇄ Spanish toggle (whole site)", Icon: Languages },
+      { label: "Cinematic hero + gold monogram", Icon: Crown },
+      { label: "Live countdown to the date", Icon: Timer },
+      { label: "RSVP with guests, meal & song requests", Icon: ListChecks },
+      { label: "Add to Calendar (.ics + Google)", Icon: CalendarPlus },
+      { label: "Venue map & directions", Icon: MapPin },
+      { label: "Gallery lightbox", Icon: Images },
+      { label: "Mobile-first, accessible (WCAG 2.2 AA)", Icon: Smartphone },
+    ],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    caseStudy: {
+      brief: [
+        "The quinceañera market is huge and almost entirely served by generic pink templates. Families routinely spend $15–25k on the event — and in towns that are 64–85% Hispanic, it's the densest, most addressable market a local studio has. The site has one job: make the invitation feel as premium as the party, work flawlessly for the whole family in both languages, and actually do the work an event needs — collect RSVPs, give directions, lock the date in everyone's calendar.",
+      ],
+      approach: [
+        "Go the opposite direction from princess-pink. Treat it like a luxury wedding-magazine spread — cream, charcoal, a single soft-gold accent, big serif headlines, generous whitespace. Then make bilingual a core feature, not an afterthought: one elegant toggle flips the entire site between English and Spanish, defaulting to English but keeping the Spanish cultural soul — Mis Quince Años, Bienvenidos, Corte de Honor — alive in both. The “wow” comes from craft, motion, and real functionality, never from clutter.",
+      ],
+      build: [
+        "A cinematic one-page experience: a showpiece hero with a drawing-in gold monogram, a live countdown to the date, the event details with a styled venue map, the Corte de Honor, and a real RSVP flow — guest count, meal choice, and song requests — that ends in a celebratory confirmation. Plus add-to-calendar and an elegant gallery lightbox. Designed mobile-first and family-first, because most of these RSVPs happen on a phone passed around a family group chat.",
+      ],
+      result: [
+        "A concept that doubles as Daycraft's quinceañera acquisition engine — the landing page future ads point to, and a template that can be re-skinned per family in an afternoon. It proves the studio can build something a $15–25k family feels matches their day, in the language their whole family actually speaks.",
+      ],
+    },
+    mockup: {
+      eyebrow: "MIS QUINCE AÑOS · MY QUINCEAÑERA",
+      headline: "Mía Reyes",
+      sub: "Acompáñame a celebrar",
+      nav: ["Inicio", "Detalles", "RSVP"],
+      cta: "RSVP",
+    },
   },
 ];
 
