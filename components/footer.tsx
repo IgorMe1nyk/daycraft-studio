@@ -81,6 +81,32 @@ export default function Footer() {
           </a>
         </div>
       </div>
+
+      {/* Legal / compliance bar — site-wide. */}
+      <div className="mx-auto max-w-6xl px-6 lg:px-8 pb-10">
+        <div className="pt-6 border-t border-charcoal/[0.06] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <nav
+            aria-label="Legal"
+            className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-warmGray/80"
+          >
+            <a href="/privacy" className="hover:text-accent transition-colors">
+              Privacy
+            </a>
+            <a href="/terms" className="hover:text-accent transition-colors">
+              Terms
+            </a>
+            <a
+              href="/accessibility"
+              className="hover:text-accent transition-colors"
+            >
+              Accessibility
+            </a>
+          </nav>
+          <p className="text-xs text-warmGray/60">
+            Essential cookies only · No tracking
+          </p>
+        </div>
+      </div>
     </footer>
   );
 }
