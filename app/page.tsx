@@ -8,6 +8,7 @@ import About from "@/components/about";
 import FAQ from "@/components/faq";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
+import { LazySection } from "@/components/lazy-section";
 
 // Section order: Hero → Services → WhyCustom → Work → Process → About → FAQ → Contact
 //
@@ -22,11 +23,18 @@ export default function Home() {
         <Hero />
         <Services />
         <WhyCustom />
-        <Work />
+        {/* Below-the-fold, heavy sections: deferred until scrolled near so
+            their DOM/JS stays off the homepage's first paint. The wrappers
+            keep the #work / #contact anchors working. */}
+        <LazySection id="work" minHeight={1400}>
+          <Work />
+        </LazySection>
         <Process />
         <About />
         <FAQ />
-        <Contact />
+        <LazySection id="contact" minHeight={760}>
+          <Contact />
+        </LazySection>
       </main>
       <Footer />
     </>

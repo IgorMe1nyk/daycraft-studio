@@ -76,12 +76,12 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* Headline — the LCP element. Server-rendered, painted immediately;
-            CSS fade-up enhances it. */}
-        <h1
-          className="text-hero-display font-display font-medium text-charcoal max-w-5xl animate-fade-up"
-          style={{ animationDelay: "60ms" }}
-        >
+        {/* Headline — the LCP element. NO entrance animation: it must paint at
+            full opacity on the first frame (an opacity:0 fade-in delays LCP
+            until the main thread runs the animation). The surrounding elements
+            still fade up; the headline is simply there immediately. */}
+        <h1 className="text-hero-display font-display font-medium text-charcoal max-w-5xl">
+
           Websites that work{" "}
           <span className="font-serif italic font-normal text-accent tracking-[-0.02em]">
             as hard

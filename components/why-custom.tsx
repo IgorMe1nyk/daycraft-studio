@@ -148,6 +148,13 @@ export function WhyCustom({
   const [years, setYears] = useState(3);
   const tier = TIERS[tierKey];
 
+  // Defer the (heavy) Recharts chart until it's near the viewport. On the
+  // homepage this section sits below the fold, so Recharts never loads on
+  // first paint — it loads as the reader scrolls toward it. Same fixed-height
+  // placeholder keeps layout identical (no CLS).
+  const chartRef = useRef<HTMLDivElement>(null);
+  const chartInView = useInView(chartRef, { once: true, margin: "400px 0px" });
+
   const builderTotal = 360 * years;
   const ahead = builderTotal - tier.price;
 
@@ -293,9 +300,16 @@ export function WhyCustom({
           {winLine}
         </m.p>
 
-        {/* Chart */}
-        <div className="mt-12 max-w-4xl mx-auto">
-          <WhyCustomChart price={tier.price} years={years} />
+        {/* Chart (deferred until near viewport — keeps Recharts off first paint) */}
+        <div ref={chartRef} className="mt-12 max-w-4xl mx-auto">
+          {chartInView ? (
+            <WhyCustomChart price={tier.price} years={years} />
+          ) : (
+            <div
+              aria-hidden
+              className="h-[320px] w-full rounded-xl bg-paleBlue/30"
+            />
+          )}
         </div>
 
         {/* Per-tier facts */}

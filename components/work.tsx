@@ -18,7 +18,7 @@ const easeOut = [0.22, 1, 0.36, 1] as const;
  */
 export default function Work() {
   return (
-    <section id="work" className="py-24 lg:py-32">
+    <section className="py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <SectionHeading
           eyebrow="Work"

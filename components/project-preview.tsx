@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { CSSProperties } from "react";
 import type { Project } from "@/lib/projects";
 import { cn } from "@/lib/utils";
+import { LazyIframe } from "./lazy-iframe";
 
 /**
  * ProjectPreview — the Mac-style browser frame used on Work cards and at the
@@ -62,13 +63,9 @@ export function ProjectPreview({
             className="object-cover object-top"
           />
         ) : project.kind === "real" && project.liveUrl ? (
-          <iframe
+          <LazyIframe
             src={project.liveUrl}
             title={`${project.name} live preview`}
-            loading="lazy"
-            sandbox="allow-same-origin allow-scripts allow-popups"
-            tabIndex={-1}
-            aria-hidden="true"
             className="absolute top-0 left-0 origin-top-left scale-50 w-[200%] h-[200%] pointer-events-none select-none border-0 bg-cream"
           />
         ) : (
