@@ -287,6 +287,38 @@ export default function Services() {
             );
           })}
         </div>
+
+        {/* Subtle wayfinding to the segment landing pages (kept out of the
+            main nav). Helps each audience self-select the right examples. */}
+        <m.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5 }}
+          className="mt-12 text-center text-sm text-warmGray"
+        >
+          See examples for your project:{" "}
+          <a
+            href="/event-sites"
+            className="text-charcoal hover:text-accent underline underline-offset-4 decoration-charcoal/20 hover:decoration-accent transition-colors"
+          >
+            events
+          </a>
+          {" · "}
+          <a
+            href="/personal-brand"
+            className="text-charcoal hover:text-accent underline underline-offset-4 decoration-charcoal/20 hover:decoration-accent transition-colors"
+          >
+            personal brand
+          </a>
+          {" · "}
+          <a
+            href="/business-sites"
+            className="text-charcoal hover:text-accent underline underline-offset-4 decoration-charcoal/20 hover:decoration-accent transition-colors"
+          >
+            local business
+          </a>
+        </m.p>
       </div>
     </section>
   );

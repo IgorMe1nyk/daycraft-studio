@@ -82,6 +82,33 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Solutions — segment landing pages (kept out of the main nav). */}
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <nav
+          aria-label="Solutions"
+          className="pt-2 flex flex-wrap gap-x-6 gap-y-2 text-sm text-warmGray"
+        >
+          <a
+            href="/event-sites"
+            className="hover:text-accent transition-colors"
+          >
+            Event websites
+          </a>
+          <a
+            href="/personal-brand"
+            className="hover:text-accent transition-colors"
+          >
+            Personal brand
+          </a>
+          <a
+            href="/business-sites"
+            className="hover:text-accent transition-colors"
+          >
+            Local business
+          </a>
+        </nav>
+      </div>
+
       {/* Legal / compliance bar — site-wide. */}
       <div className="mx-auto max-w-6xl px-6 lg:px-8 pb-10">
         <div className="pt-6 border-t border-charcoal/[0.06] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
