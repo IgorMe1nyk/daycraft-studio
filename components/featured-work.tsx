@@ -101,9 +101,10 @@ function RowFrame({
       className={cn(
         "relative rounded-xl overflow-hidden border border-charcoal/10 bg-cream",
         "shadow-[0_12px_36px_-16px_rgba(26,26,26,0.20)]",
-        "transition-[transform,box-shadow] duration-500 ease-out",
-        "group-hover:-translate-y-1.5 group-hover:shadow-[0_26px_60px_-18px_rgba(26,26,26,0.32)]",
-        "group-focus-within:-translate-y-1.5 group-focus-within:shadow-[0_26px_60px_-18px_rgba(26,26,26,0.32)]",
+        // One clean move on hover/focus: a gentle ~4px lift + softer shadow.
+        "transition-[transform,box-shadow] duration-300 ease-out",
+        "group-hover:-translate-y-1 group-hover:shadow-[0_22px_50px_-20px_rgba(26,26,26,0.30)]",
+        "group-focus-within:-translate-y-1 group-focus-within:shadow-[0_22px_50px_-20px_rgba(26,26,26,0.30)]",
         "motion-reduce:transition-none motion-reduce:transform-none",
       )}
     >
@@ -153,17 +154,13 @@ function Row({ f, index }: { f: Featured; index: number }) {
         >
           <RowFrame displayUrl={project.displayUrl}>
             {f.image ? (
+              // Static, well-composed hero screenshot (2x source) — no panning.
               <Image
                 src={f.image.src}
                 alt={f.image.alt}
                 fill
                 sizes="(max-width: 1024px) 100vw, 60vw"
-                className={cn(
-                  "object-cover object-top",
-                  "transition-[object-position] duration-[1400ms] ease-out",
-                  "group-hover:object-bottom group-focus-within:object-bottom",
-                  "motion-reduce:transition-none",
-                )}
+                className="object-cover object-top"
               />
             ) : (
               <ConceptMockup project={project} />
