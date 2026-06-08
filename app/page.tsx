@@ -2,7 +2,7 @@ import Nav from "@/components/nav";
 import Hero from "@/components/hero";
 import Services from "@/components/services";
 import { WhyCustomTeaser } from "@/components/why-custom-teaser";
-import Work from "@/components/work";
+import { FeaturedWork } from "@/components/featured-work";
 import Process from "@/components/process";
 import About from "@/components/about";
 import FAQ from "@/components/faq";
@@ -26,8 +26,8 @@ export default function Home() {
         {/* Below-the-fold, heavy sections: deferred until scrolled near so
             their DOM/JS stays off the homepage's first paint. The wrappers
             keep the #work / #contact anchors working. */}
-        <LazySection id="work" minHeight={1400}>
-          <Work />
+        <LazySection id="work" minHeight={1600}>
+          <FeaturedWork />
         </LazySection>
         <Process />
         <About />

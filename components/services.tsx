@@ -208,7 +208,7 @@ export default function Services() {
                 )}
               >
                 {t.popular && (
-                  <span className="absolute -top-3 left-7 text-[10px] font-medium tracking-[0.18em] bg-accent text-cream px-3 py-1 rounded-full uppercase shadow-[0_2px_8px_-2px_rgba(107,140,174,0.45)]">
+                  <span className="absolute -top-3 left-7 text-[10px] font-medium tracking-[0.18em] bg-accentDeep text-cream px-3 py-1 rounded-full uppercase shadow-[0_2px_8px_-2px_rgba(107,140,174,0.45)]">
                     Most Popular
                   </span>
                 )}
@@ -278,7 +278,7 @@ export default function Services() {
                 {t.tier === "STARTER" && (
                   <a
                     href="#work"
-                    className="mt-2 inline-block text-xs text-warmGray/80 hover:text-accentDeep transition-colors"
+                    className="mt-2 inline-block text-xs text-warmGray hover:text-accentDeep transition-colors"
                   >
                     See an example →
                   </a>

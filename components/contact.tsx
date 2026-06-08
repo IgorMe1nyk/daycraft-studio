@@ -228,7 +228,7 @@ export default function Contact() {
                 )}
 
                 <div className="sm:col-span-2 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
-                  <p className="text-xs text-warmGray/80">
+                  <p className="text-xs text-warmGray">
                     No spam. No newsletters. Just a reply.
                   </p>
                   <Button

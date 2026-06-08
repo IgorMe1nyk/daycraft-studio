@@ -82,7 +82,7 @@ export function ProjectPreview({
    real site. Type scales with the container via cqw units.
    ───────────────────────────────────────────────────────────────────── */
 
-function ConceptMockup({ project }: { project: Project }) {
+export function ConceptMockup({ project }: { project: Project }) {
   const p = project.palette;
   const m = project.mockup;
 

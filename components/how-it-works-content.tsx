@@ -199,7 +199,7 @@ function Stages() {
                   <h3 className="text-xl sm:text-2xl tracking-[-0.015em] text-charcoal">
                     {s.title}
                   </h3>
-                  <span className="text-[11px] tracking-[0.18em] text-warmGray/80 uppercase">
+                  <span className="text-[11px] tracking-[0.18em] text-warmGray uppercase">
                     {s.timeline}
                   </span>
                 </div>
