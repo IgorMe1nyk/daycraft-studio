@@ -1,7 +1,7 @@
 import Nav from "@/components/nav";
 import Hero from "@/components/hero";
 import Services from "@/components/services";
-import { WhyCustom } from "@/components/why-custom";
+import { WhyCustomTeaser } from "@/components/why-custom-teaser";
 import Work from "@/components/work";
 import Process from "@/components/process";
 import About from "@/components/about";
@@ -22,7 +22,7 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
-        <WhyCustom />
+        <WhyCustomTeaser />
         {/* Below-the-fold, heavy sections: deferred until scrolled near so
             their DOM/JS stays off the homepage's first paint. The wrappers
             keep the #work / #contact anchors working. */}

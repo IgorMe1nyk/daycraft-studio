@@ -56,6 +56,12 @@ export default function Footer() {
             How it works
           </a>
           <a
+            href="/why-custom"
+            className="text-warmGray hover:text-charcoal transition-colors"
+          >
+            Why custom?
+          </a>
+          <a
             href="mailto:hello@daycraftstudio.com"
             className="text-warmGray hover:text-accentDeep transition-colors"
           >

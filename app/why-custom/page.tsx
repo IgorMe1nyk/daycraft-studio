@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
-import { WhyCustom } from "@/components/why-custom";
+import { WhyCustomContent } from "@/components/why-custom-content";
 
 export const metadata: Metadata = {
   title: "Why not a $30/month builder? — The honest answer · Daycraft Studio",
@@ -21,8 +21,8 @@ export default function WhyCustomPage() {
   return (
     <>
       <Nav />
-      <main className="pt-12 lg:pt-16">
-        <WhyCustom headingTag="h1" />
+      <main>
+        <WhyCustomContent />
       </main>
       <Footer />
     </>
